@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Authorization xmlns:clr="http://schemas.cleverence.ru/clr" version="3bc985bd-0c2e-4262-960e-14bc7bd09001">
+  <Groups>
+    <UserGroup autorunDocumentTypeName="" batchMode="False" id="Main" name="Main" role="MobileDeviceUser" serverSideInventory="False">
+      <DocumentTypeNames>
+      </DocumentTypeNames>
+    </UserGroup>
+  </Groups>
+  <Users version="">
+    <User id="Terminal" name="Terminal" barcode="3203741232" password="3203741232" groupId="Main"></User>
+  </Users>
+</Authorization>

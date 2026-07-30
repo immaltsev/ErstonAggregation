@@ -1,0 +1,49 @@
+// Транспортная упаковка старого решения: 00 + признак уровня + четыре цифры.
+@[Barcode = "00{Расширение:@[0-9]{1}}{Код:@[0-9]{4}}"]
+type ТУ of Container
+{
+    ContainerData
+    {
+        string Расширение
+        string Код
+    }
+
+    Extension
+    {
+        bool ЭтоПалета { this.Расширение == "1" }
+        bool ЭтоКоробка { this.Расширение != "1" }
+    }
+}
+
+expand ТУ
+{
+    static function bool IsValidBarcode(string barcode)
+    {
+        if (barcode == "")
+        {
+            return false
+        }
+
+        if (barcode.Length != 7 || !barcode.StartsWith("00"))
+        {
+            return false
+        }
+
+        string digits = "0123456789"
+        return digits.Contains(barcode.Substring(2, 1)) && \
+            digits.Contains(barcode.Substring(3, 1)) && \
+            digits.Contains(barcode.Substring(4, 1)) && \
+            digits.Contains(barcode.Substring(5, 1)) && \
+            digits.Contains(barcode.Substring(6, 1))
+    }
+
+    static function bool IsPalletBarcode(string barcode)
+    {
+        return IsValidBarcode(barcode) && barcode.Substring(2, 1) == "1"
+    }
+
+    static function bool IsBoxBarcode(string barcode)
+    {
+        return IsValidBarcode(barcode) && !IsPalletBarcode(barcode)
+    }
+}

@@ -1,0 +1,25 @@
+// Общие доменные расширения документа итогового задания.
+expand Document
+{
+    expand DocumentItem
+    {
+        @[Indexed = true]
+        string GTIN
+
+        @[Indexed = true]
+        string SerialNumber
+
+        @[Indexed = true]
+        string PalletBarcode
+
+        bool BoxClosed
+    }
+
+    expand InventoryItemRecord
+    {
+        string GTIN
+        string SerialNumber
+        string PalletBarcode
+        bool BoxClosed
+    }
+}

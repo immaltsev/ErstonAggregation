@@ -1,0 +1,2977 @@
+{
+  "components": [
+    {
+      "fileName": "c:\\Mac\\Home\\Documents\\ErstonAggregation\\src\\app.erst",
+      "parentComponentName": "##MainApp__AfterLogin",
+      "tokenList": [
+        {
+          "actionId": "##MainApp__AfterLogin.Label1",
+          "actionName": "Label1",
+          "line": 5,
+          "column": 9,
+          "endLine": 5,
+          "endColumn": 9
+        }
+      ]
+    },
+    {
+      "fileName": "c:\\Mac\\Home\\Documents\\ErstonAggregation\\src\\metadata\\domain.erst",
+      "parentComponentName": "##\u0422\u0423__IsValidBarcode",
+      "tokenList": [
+        {
+          "actionId": "##\u0422\u0423__IsValidBarcode.Label1.1",
+          "actionName": "Label1.1",
+          "line": 24,
+          "column": 13,
+          "endLine": 24,
+          "endColumn": 13
+        },
+        {
+          "actionId": "##\u0422\u0423__IsValidBarcode.Label1",
+          "actionName": "Label1",
+          "line": 22,
+          "column": 9,
+          "endLine": 22,
+          "endColumn": 9
+        },
+        {
+          "actionId": "##\u0422\u0423__IsValidBarcode.Label2",
+          "actionName": "Label2",
+          "line": 22,
+          "column": 9,
+          "endLine": 22,
+          "endColumn": 9
+        },
+        {
+          "actionId": "##\u0422\u0423__IsValidBarcode.Label3.1",
+          "actionName": "Label3.1",
+          "line": 29,
+          "column": 13,
+          "endLine": 29,
+          "endColumn": 13
+        },
+        {
+          "actionId": "##\u0422\u0423__IsValidBarcode.Label3",
+          "actionName": "Label3",
+          "line": 27,
+          "column": 9,
+          "endLine": 27,
+          "endColumn": 9
+        },
+        {
+          "actionId": "##\u0422\u0423__IsValidBarcode.Label4",
+          "actionName": "Label4",
+          "line": 27,
+          "column": 9,
+          "endLine": 27,
+          "endColumn": 9
+        },
+        {
+          "actionId": "##\u0422\u0423__IsValidBarcode.Label5",
+          "actionName": "Label5",
+          "line": 32,
+          "column": 9,
+          "endLine": 32,
+          "endColumn": 9
+        },
+        {
+          "actionId": "##\u0422\u0423__IsValidBarcode.Label6",
+          "actionName": "Label6",
+          "line": 33,
+          "column": 9,
+          "endLine": 33,
+          "endColumn": 9
+        }
+      ]
+    },
+    {
+      "fileName": "c:\\Mac\\Home\\Documents\\ErstonAggregation\\src\\metadata\\domain.erst",
+      "parentComponentName": "##\u0422\u0423__IsPalletBarcode",
+      "tokenList": [
+        {
+          "actionId": "##\u0422\u0423__IsPalletBarcode.Label1",
+          "actionName": "Label1",
+          "line": 42,
+          "column": 9,
+          "endLine": 42,
+          "endColumn": 9
+        },
+        {
+          "actionId": "##\u0422\u0423__IsPalletBarcode.Label2",
+          "actionName": "Label2",
+          "line": 42,
+          "column": 9,
+          "endLine": 42,
+          "endColumn": 9
+        }
+      ]
+    },
+    {
+      "fileName": "c:\\Mac\\Home\\Documents\\ErstonAggregation\\src\\metadata\\domain.erst",
+      "parentComponentName": "##\u0422\u0423__IsBoxBarcode",
+      "tokenList": [
+        {
+          "actionId": "##\u0422\u0423__IsBoxBarcode.Label1",
+          "actionName": "Label1",
+          "line": 47,
+          "column": 9,
+          "endLine": 47,
+          "endColumn": 9
+        },
+        {
+          "actionId": "##\u0422\u0423__IsBoxBarcode.Label3",
+          "actionName": "Label3",
+          "line": 47,
+          "column": 9,
+          "endLine": 47,
+          "endColumn": 9
+        },
+        {
+          "actionId": "##\u0422\u0423__IsBoxBarcode.Label2",
+          "actionName": "Label2",
+          "line": 47,
+          "column": 9,
+          "endLine": 47,
+          "endColumn": 9
+        },
+        {
+          "actionId": "##\u0422\u0423__IsBoxBarcode.Label4",
+          "actionName": "Label4",
+          "line": 47,
+          "column": 9,
+          "endLine": 47,
+          "endColumn": 9
+        },
+        {
+          "actionId": "##\u0422\u0423__IsBoxBarcode.Label5",
+          "actionName": "Label5",
+          "line": 47,
+          "column": 9,
+          "endLine": 47,
+          "endColumn": 9
+        }
+      ]
+    }
+  ],
+  "operationVariables": {
+    "ShowCustomScreen": [
+      "MainText",
+      "Transparent",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "ScannedBarcode",
+      "BarcodeData"
+    ],
+    "EnterDateTime": [
+      "WelcomeText",
+      "DateNumber",
+      "SetRegistrationDate",
+      "SetExpiryDate",
+      "SetForBuffer",
+      "SetCurrentDate",
+      "Format",
+      "RememberPreviousValue",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "ScannedBarcode",
+      "BarcodeData"
+    ],
+    "CRCloseShift": [
+      "AutoCloseShift",
+      "ErrorCRNotSelected",
+      "ErrorCRSettingsNotSelected",
+      "Register",
+      "RegisterSettings",
+      "DataZReport"
+    ],
+    "WriteToBuffer": [
+      "CheckQuantity",
+      "FillWithRemains",
+      "ErrorQuantityMessage",
+      "NoProductInDocumentMessage",
+      "ExpectedLines",
+      "CombineItems",
+      "IgnoreFieldsInDocument",
+      "ComparingFieldNames",
+      "TargetBuffer",
+      "SelectedProductSessionVariable",
+      "FirstStorageSessionVariable",
+      "SecondStorageSessionVariable",
+      "SSCCContainerSessionVariable"
+    ],
+    "SelectLocation": [
+      "WelcomeText",
+      "NotExistedCellErrorText",
+      "NotFoundInDocErrorText",
+      "SelectingStorage",
+      "SelectionText",
+      "CheckInDocument",
+      "SetForBuffer",
+      "CanSelectCell",
+      "CanSelectPallet",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "BufferSessionVariable",
+      "SelectedLineSessionVariable",
+      "SelectedProductSessionVariable",
+      "SecondStorage",
+      "FirstStorage",
+      "SelectedPallet",
+      "SSCCPallet",
+      "ScannedBarcode",
+      "BarcodeData"
+    ],
+    "CRPrintShiftResults": [
+      "ErrorCRNotSelected",
+      "ErrorCRSettingsNotSelected",
+      "Register",
+      "RegisterSettings",
+      "ShiftNumber"
+    ],
+    "EditField": [
+      "WelcomeText",
+      "EditType",
+      "Field",
+      "FieldType",
+      "EanAI",
+      "Format",
+      "SizeType",
+      "RememberPreviousValue",
+      "ShowList",
+      "ShowEditBox",
+      "DataSource",
+      "Query",
+      "ListItemFormat",
+      "ListCaption",
+      "Columns",
+      "SetForBuffer",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "SelectedItem",
+      "ScannedBarcode",
+      "BarcodeData",
+      "Value",
+      "ValueString",
+      "ValueChanged"
+    ],
+    "CRPrintReportByDate": [
+      "ErrorCRNotSelected",
+      "ErrorCRSettingsNotSelected",
+      "Register",
+      "RegisterSettings",
+      "FullReport",
+      "BySectionOrShift",
+      "DateFrom",
+      "DateTo"
+    ],
+    "Confirm": [
+      "Message",
+      "Buttons",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "AutoCloseDirection",
+      "Controls",
+      "BackgroundImage"
+    ],
+    "Alert": [
+      "Message",
+      "HeaderText",
+      "SaveInHistory",
+      "Controls"
+    ],
+    "SelectPrinter": [
+      "WelcomeText",
+      "PrintersSource",
+      "SelectedPrinter",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "ScannedBarcode",
+      "BarcodeData"
+    ],
+    "Notify": [
+      "Text",
+      "Seconds",
+      "IsError",
+      "Message",
+      "ErrorMessage"
+    ],
+    "CommitBuffer": [
+      "CheckDocumentInfill",
+      "CombineEqualActualLines",
+      "IgnoreFieldsInExpectedLines",
+      "ComparingFieldNames",
+      "ComparingFieldNamesForActualLines",
+      "OnlyInActualLines",
+      "BufferSessionVariable",
+      "LastChangedActualLines",
+      "LastChangedExpectedLines"
+    ],
+    "SelectContainer": [
+      "WelcomeText",
+      "NotExistedCellErrorText",
+      "NotFoundInDocErrorText",
+      "SelectingStorage",
+      "SelectionText",
+      "CheckInDocument",
+      "SetForBuffer",
+      "CanSelectCell",
+      "CanSelectPallet",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "FirstStorage",
+      "SelectedPallet",
+      "SSCCPallet",
+      "SecondStorage",
+      "ScannedBarcode",
+      "BarcodeData"
+    ],
+    "WriteRFIDTags": [
+      "WelcomeText",
+      "RfidCommand",
+      "PowerValue",
+      "PlaySuccessSound",
+      "PlayErrorSound",
+      "OnWriteFailed",
+      "StartImmediately",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "ScannedBarcode",
+      "BarcodeData"
+    ],
+    "CRMakeDepositOrPayout": [
+      "OperationType",
+      "OperationSum",
+      "ErrorCRNotSelected",
+      "ErrorCRSettingsNotSelected",
+      "Register",
+      "RegisterSettings"
+    ],
+    "CRSelectCashRegister": [
+      "WelcomeText",
+      "SelectedCashRegister",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "ScannedBarcode",
+      "BarcodeData"
+    ],
+    "PlayVideo": [
+      "Video",
+      "Stretching",
+      "Volume",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "ScannedBarcode",
+      "BarcodeData"
+    ],
+    "RemoveDocumentLine": [
+      "DocumentLineToRemove",
+      "Quantity",
+      "Packing"
+    ],
+    "CreateUnitOfMeasure": [
+      "WelcomeText",
+      "NotFoundErrorText",
+      "DefaultPackingName",
+      "DefaultQuantity",
+      "UseDefaultParams",
+      "InventoryRecord",
+      "SelectionListFormat",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "BarcodeSessionVariable",
+      "SelectedProduct",
+      "ScannedBarcode",
+      "BarcodeData"
+    ],
+    "EnterQuantity": [
+      "WelcomeText",
+      "QuantityObject",
+      "InventoryItemRecord",
+      "DocumentItem",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "ScannedBarcode",
+      "BarcodeData",
+      "Quantity",
+      "QuantityString",
+      "QuantityChanged"
+    ],
+    "Finish": [
+      "Immediately"
+    ],
+    "ReadRFIDTags": [
+      "WelcomeText",
+      "RfidCommand",
+      "ScannedTag",
+      "PowerValue",
+      "ScannedTags",
+      "OnTagScanned",
+      "CleanTagsBeforeNewReading",
+      "UseRepetitiveTagReads",
+      "DataSource",
+      "Columns",
+      "SelectedItem",
+      "PlaySuccessSounds",
+      "PlayFailSounds",
+      "TriggerMode",
+      "Mode",
+      "MaxTagsPerReading",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "ScannedBarcode",
+      "BarcodeData"
+    ],
+    "SignOnScreen": [
+      "WelcomeText",
+      "PictureResult",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "ScannedBarcode",
+      "BarcodeData"
+    ],
+    "EditFields": [
+      "Lines",
+      "ProcessImmediately",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "ScannedBarcode",
+      "BarcodeData",
+      "Value",
+      "ValueString",
+      "ValueChanged"
+    ],
+    "ShowItems": [
+      "WelcomeText",
+      "DataSource",
+      "Query",
+      "Format",
+      "Columns",
+      "SelectedItem",
+      "TilesCount",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "ScannedBarcode",
+      "BarcodeData"
+    ],
+    "ShowReport": [
+      "BackColor",
+      "Blocks",
+      "SinglePage",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "ScannedBarcode",
+      "BarcodeData"
+    ],
+    "SearchRFIDTags": [
+      "WelcomeText",
+      "ScannedTag",
+      "RfidCommand",
+      "PowerValue",
+      "PlayReadTagSignal",
+      "TriggerMode",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "ScannedBarcode",
+      "BarcodeData"
+    ],
+    "CROpenShift": [
+      "AutoOpenShift",
+      "ErrorCRNotSelected",
+      "ErrorCRSettingsNotSelected",
+      "Register",
+      "RegisterSettings"
+    ],
+    "Menu": [
+      "WelcomeText",
+      "Buttons",
+      "DefaultButtonHeight",
+      "ShowAsMsgBox",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "ScannedBarcode",
+      "BarcodeData"
+    ],
+    "PrintLabel": [
+      "Keys",
+      "Values",
+      "DataSource",
+      "LabelName",
+      "Printer",
+      "Copies"
+    ],
+    "TakePhoto": [
+      "CameraType",
+      "Illumination",
+      "Aiming",
+      "Quality",
+      "Width",
+      "Height",
+      "PhotoResult",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "ScannedBarcode",
+      "BarcodeData"
+    ],
+    "CRPerformCashTransaction": [
+      "WareCode",
+      "PlaceOfPayment",
+      "TextAfterOpenCheck",
+      "ActionData",
+      "OperationType",
+      "OperationText",
+      "OperationQuantity",
+      "OperationPrice",
+      "OperationTaxRate",
+      "OperationDoNotPrint",
+      "OperationBuyerNotifyAddress",
+      "OperationSection",
+      "CashIn",
+      "PrepaymentSum",
+      "CreditSum",
+      "AnotherSum",
+      "CloseCheck",
+      "CloseCheckText",
+      "ErrorCRNotSelected",
+      "DocumentNumber",
+      "ReceiptData",
+      "ErrorCRSettingsNotSelected",
+      "Register",
+      "RegisterSettings",
+      "Value",
+      "PositionSum",
+      "PositionDiscount",
+      "PositionType",
+      "PositionPaymentType",
+      "PayAgentFee",
+      "PayAgentPhone",
+      "PaySubAgentPhone",
+      "PayRecvOperatorPhone",
+      "PayBankAgentFee",
+      "PayBankAgentTransmitOperatorINN",
+      "PayBankAgentTransmitOperatorName",
+      "PayBankAgentOperationName",
+      "PayBankSubAgentOperationName",
+      "PayBankAgentPhone",
+      "PayBankSubAgentPhone",
+      "PayBankAgentTransmitOperatorPhone",
+      "PayBankAgentTransmitOperatorAddress",
+      "ElectronicMoney",
+      "PrintSlip",
+      "PrintSlipCount",
+      "PrintTemplateName",
+      "PrintTemplateCount",
+      "HeaderText",
+      "FooterText",
+      "CorrectionReceiptName",
+      "CorrectionReceiptSourceDocDate",
+      "CorrectionReceiptSourceDocNumber",
+      "CorrectionReceiptType",
+      "ClientName",
+      "ClientINN",
+      "WareMadeIn",
+      "ExciseSum",
+      "WareDeclarationNumber"
+    ],
+    "CRPrintReportByShift": [
+      "ErrorCRNotSelected",
+      "ErrorCRSettingsNotSelected",
+      "Register",
+      "RegisterSettings",
+      "FullReport",
+      "BySectionOrShift",
+      "ShiftFrom",
+      "ShiftTo"
+    ],
+    "CommitInventoryRecord": [
+      "CheckQuantity",
+      "ErrorQuantityMessage",
+      "NoInventoryItemInDocumentMessage",
+      "IgnoreFieldsInDocument",
+      "ComparingFieldNames",
+      "ComparingFieldNamesForActualLines",
+      "CheckDocumentInfill",
+      "CombineEqualActualLines",
+      "ExpectedLines",
+      "OnlyInActualLines",
+      "ExpectedExpression",
+      "SelectedProductSessionVariable",
+      "FirstStorageSessionVariable",
+      "SecondStorageSessionVariable",
+      "SSCCContainerSessionVariable",
+      "LastChangedActualLines",
+      "LastChangedExpectedLines"
+    ],
+    "CRShowCashRegisterSettings": [
+      "WelcomeText",
+      "Register",
+      "SelectedCashRegister",
+      "ErrorCRNotSelected",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "ScannedBarcode",
+      "BarcodeData"
+    ],
+    "ScanAndSearch": [
+      "WaitImage",
+      "WithoutControls",
+      "WelcomeText",
+      "NotFoundErrorText",
+      "CanSelectCell",
+      "CanSelectPallet",
+      "SelectionStorageVariable",
+      "SelectionPalletText",
+      "SelectionCellText",
+      "QuickSelectInventoryItem",
+      "CanManualShowInventoryItemsList",
+      "UseOnlyDocumentInventoryItems",
+      "PlayAudioOnError",
+      "IgnoreQuantityPolicy",
+      "IgnoreBaseBarcodes",
+      "SearchPreviousSelected",
+      "SearchingInventoryItems",
+      "AutoShowSelectionList",
+      "SelectionListFormat",
+      "ProcessSessionBarcode",
+      "InventoryItemsListHeaderText",
+      "AutoSelectSingleInventoryItem",
+      "BarcodeConvertion",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "BarcodeSessionVariable",
+      "SelectedProduct",
+      "ScannedBarcode",
+      "BarcodeData"
+    ],
+    "CreateInventoryItem": [
+      "WelcomeText",
+      "NotFoundErrorText",
+      "DefaultPackingName",
+      "DefaultQuantity",
+      "DefaultUnits",
+      "UseDefaultParams",
+      "CancelText",
+      "HeaderText",
+      "FooterText",
+      "Title",
+      "SaveInHistory",
+      "Fullscreen",
+      "AutoCloseTime",
+      "Controls",
+      "BackgroundImage",
+      "BarcodeSessionVariable",
+      "SelectedProduct",
+      "ScannedBarcode",
+      "BarcodeData"
+    ],
+    "bool.Parse": [
+      "value"
+    ],
+    "sbyte.Parse": [
+      "s"
+    ],
+    "byte.Parse": [
+      "s"
+    ],
+    "short.Parse": [
+      "s"
+    ],
+    "ushort.Parse": [
+      "s"
+    ],
+    "int.Parse": [
+      "s"
+    ],
+    "uint.Parse": [
+      "s"
+    ],
+    "long.Parse": [
+      "s"
+    ],
+    "ulong.Parse": [
+      "s"
+    ],
+    "float.IsInfinity": [
+      "f"
+    ],
+    "float.IsPositiveInfinity": [
+      "f"
+    ],
+    "float.IsNegativeInfinity": [
+      "f"
+    ],
+    "float.IsNaN": [
+      "f"
+    ],
+    "float.Parse": [
+      "s"
+    ],
+    "double.IsInfinity": [
+      "d"
+    ],
+    "double.IsPositiveInfinity": [
+      "d"
+    ],
+    "double.IsNegativeInfinity": [
+      "d"
+    ],
+    "double.IsNaN": [
+      "d"
+    ],
+    "double.Parse": [
+      "s"
+    ],
+    "decimal.ToByte": [
+      "value"
+    ],
+    "decimal.ToInt32": [
+      "d"
+    ],
+    "decimal.ToOACurrency": [
+      "value"
+    ],
+    "decimal.FromOACurrency": [
+      "cy"
+    ],
+    "decimal.Add": [
+      "d1",
+      "d2"
+    ],
+    "decimal.Ceiling": [
+      "d"
+    ],
+    "decimal.Compare": [
+      "d1",
+      "d2"
+    ],
+    "decimal.Divide": [
+      "d1",
+      "d2"
+    ],
+    "decimal.Floor": [
+      "d"
+    ],
+    "decimal.Parse": [
+      "s"
+    ],
+    "decimal.Remainder": [
+      "d1",
+      "d2"
+    ],
+    "decimal.Multiply": [
+      "d1",
+      "d2"
+    ],
+    "decimal.Negate": [
+      "d"
+    ],
+    "decimal.Round": [
+      "d"
+    ],
+    "decimal.Subtract": [
+      "d1",
+      "d2"
+    ],
+    "decimal.ToSByte": [
+      "value"
+    ],
+    "decimal.ToInt16": [
+      "value"
+    ],
+    "decimal.ToInt64": [
+      "d"
+    ],
+    "decimal.ToUInt16": [
+      "value"
+    ],
+    "decimal.ToUInt32": [
+      "d"
+    ],
+    "decimal.ToUInt64": [
+      "d"
+    ],
+    "decimal.Truncate": [
+      "d"
+    ],
+    "decimal.ToDouble": [
+      "d"
+    ],
+    "decimal.ToSingle": [
+      "d"
+    ],
+    "char.Parse": [
+      "s"
+    ],
+    "char.IsDigit": [
+      "c"
+    ],
+    "char.IsLetter": [
+      "c"
+    ],
+    "char.IsWhiteSpace": [
+      "c"
+    ],
+    "char.IsUpper": [
+      "c"
+    ],
+    "char.IsLower": [
+      "c"
+    ],
+    "char.IsPunctuation": [
+      "c"
+    ],
+    "char.IsLetterOrDigit": [
+      "c"
+    ],
+    "char.ToUpper": [
+      "c",
+      "culture"
+    ],
+    "char.ToUpperInvariant": [
+      "c"
+    ],
+    "char.ToLower": [
+      "c",
+      "culture"
+    ],
+    "char.ToLowerInvariant": [
+      "c"
+    ],
+    "char.IsControl": [
+      "c"
+    ],
+    "char.IsNumber": [
+      "c"
+    ],
+    "char.IsSeparator": [
+      "c"
+    ],
+    "char.IsSurrogate": [
+      "c"
+    ],
+    "char.IsSymbol": [
+      "c"
+    ],
+    "char.GetUnicodeCategory": [
+      "c"
+    ],
+    "char.GetNumericValue": [
+      "c"
+    ],
+    "char.IsHighSurrogate": [
+      "c"
+    ],
+    "char.IsLowSurrogate": [
+      "c"
+    ],
+    "char.IsSurrogatePair": [
+      "s",
+      "index"
+    ],
+    "char.ConvertFromUtf32": [
+      "utf32"
+    ],
+    "char.ConvertToUtf32": [
+      "highSurrogate",
+      "lowSurrogate"
+    ],
+    "string.Substring": [
+      "startIndex",
+      "length"
+    ],
+    "string.Contains": [
+      "value"
+    ],
+    "string.EndsWith": [
+      "value"
+    ],
+    "string.IndexOf": [
+      "value"
+    ],
+    "string.LastIndexOf": [
+      "value"
+    ],
+    "string.PadLeft": [
+      "totalWidth"
+    ],
+    "string.PadRight": [
+      "totalWidth"
+    ],
+    "string.StartsWith": [
+      "value"
+    ],
+    "string.Insert": [
+      "startIndex",
+      "value"
+    ],
+    "string.Replace": [
+      "oldValue",
+      "newValue"
+    ],
+    "string.Remove": [
+      "startIndex",
+      "count"
+    ],
+    "string.IsNullOrEmpty": [
+      "value"
+    ],
+    "string.IsNullOrWhiteSpace": [
+      "value"
+    ],
+    "string.Compare": [
+      "strA",
+      "strB"
+    ],
+    "string.CompareOrdinal": [
+      "strA",
+      "strB"
+    ],
+    "string.Format": [
+      "format",
+      "arg0"
+    ],
+    "string.Copy": [
+      "str"
+    ],
+    "string.Concat": [
+      "arg0"
+    ],
+    "string.Intern": [
+      "str"
+    ],
+    "string.IsInterned": [
+      "str"
+    ],
+    "object.FromJson": [
+      "json"
+    ],
+    "Guid.Parse": [
+      "input"
+    ],
+    "Guid.ParseExact": [
+      "input",
+      "format"
+    ],
+    "IFormatProvider.GetFormat": [
+      "formatType"
+    ],
+    "TimeSpan.Add": [
+      "ts"
+    ],
+    "TimeSpan.Subtract": [
+      "ts"
+    ],
+    "TimeSpan.Compare": [
+      "t1",
+      "t2"
+    ],
+    "TimeSpan.FromDays": [
+      "value"
+    ],
+    "TimeSpan.FromHours": [
+      "value"
+    ],
+    "TimeSpan.FromMilliseconds": [
+      "value"
+    ],
+    "TimeSpan.FromMinutes": [
+      "value"
+    ],
+    "TimeSpan.FromSeconds": [
+      "value"
+    ],
+    "TimeSpan.FromTicks": [
+      "value"
+    ],
+    "TimeSpan.Parse": [
+      "s"
+    ],
+    "TimeSpan.ParseExact": [
+      "input",
+      "format",
+      "formatProvider"
+    ],
+    "TimeSpan.TryParseExact": [
+      "input",
+      "format",
+      "formatProvider",
+      "result"
+    ],
+    "DateTime.Add": [
+      "value"
+    ],
+    "DateTime.AddDays": [
+      "value"
+    ],
+    "DateTime.AddHours": [
+      "value"
+    ],
+    "DateTime.AddMilliseconds": [
+      "value"
+    ],
+    "DateTime.AddMinutes": [
+      "value"
+    ],
+    "DateTime.AddMonths": [
+      "months"
+    ],
+    "DateTime.AddSeconds": [
+      "value"
+    ],
+    "DateTime.AddTicks": [
+      "value"
+    ],
+    "DateTime.AddYears": [
+      "value"
+    ],
+    "DateTime.Subtract": [
+      "value"
+    ],
+    "DateTime.Compare": [
+      "t1",
+      "t2"
+    ],
+    "DateTime.DaysInMonth": [
+      "year",
+      "month"
+    ],
+    "DateTime.FromBinary": [
+      "dateData"
+    ],
+    "DateTime.FromFileTime": [
+      "fileTime"
+    ],
+    "DateTime.FromFileTimeUtc": [
+      "fileTime"
+    ],
+    "DateTime.FromOADate": [
+      "d"
+    ],
+    "DateTime.SpecifyKind": [
+      "value",
+      "kind"
+    ],
+    "DateTime.IsLeapYear": [
+      "year"
+    ],
+    "DateTime.Parse": [
+      "s"
+    ],
+    "DateTime.ParseExact": [
+      "s",
+      "format",
+      "provider"
+    ],
+    "DateTime.TryParseExact": [
+      "s",
+      "format",
+      "provider",
+      "style",
+      "result"
+    ],
+    "Math.Ceiling": [
+      "d"
+    ],
+    "Math.Floor": [
+      "d"
+    ],
+    "Math.Round": [
+      "value",
+      "digits"
+    ],
+    "Math.Truncate": [
+      "d"
+    ],
+    "Math.IEEERemainder": [
+      "x",
+      "y"
+    ],
+    "Math.Abs": [
+      "value"
+    ],
+    "Math.Max": [
+      "val1",
+      "val2"
+    ],
+    "Math.Min": [
+      "val1",
+      "val2"
+    ],
+    "Math.Log": [
+      "a",
+      "newBase"
+    ],
+    "Math.Sign": [
+      "value"
+    ],
+    "Math.BigMul": [
+      "a",
+      "b"
+    ],
+    "Math.Acos": [
+      "d"
+    ],
+    "Math.Asin": [
+      "d"
+    ],
+    "Math.Atan": [
+      "d"
+    ],
+    "Math.Atan2": [
+      "y",
+      "x"
+    ],
+    "Math.Cosh": [
+      "value"
+    ],
+    "Math.Sinh": [
+      "value"
+    ],
+    "Math.Tanh": [
+      "value"
+    ],
+    "Math.Sqrt": [
+      "d"
+    ],
+    "Math.Log10": [
+      "d"
+    ],
+    "Math.Cos": [
+      "d"
+    ],
+    "Math.Sin": [
+      "a"
+    ],
+    "Math.Tan": [
+      "a"
+    ],
+    "Math.Exp": [
+      "d"
+    ],
+    "Math.Pow": [
+      "x",
+      "y"
+    ],
+    "Regex.GroupNameFromNumber": [
+      "i"
+    ],
+    "Regex.GroupNumberFromName": [
+      "name"
+    ],
+    "Regex.IsMatch": [
+      "input",
+      "pattern",
+      "options",
+      "matchTimeout"
+    ],
+    "Regex.Match": [
+      "input",
+      "pattern",
+      "options"
+    ],
+    "Regex.Matches": [
+      "input",
+      "pattern",
+      "options"
+    ],
+    "Regex.Replace": [
+      "input",
+      "pattern",
+      "replacement"
+    ],
+    "Regex.Escape": [
+      "str"
+    ],
+    "Regex.Unescape": [
+      "str"
+    ],
+    "Group.Synchronized": [
+      "inner"
+    ],
+    "Match.Result": [
+      "replacement"
+    ],
+    "Match.Synchronized": [
+      "inner"
+    ],
+    "IList.Add": [
+      "value"
+    ],
+    "IList.Contains": [
+      "obj"
+    ],
+    "IList.IndexOf": [
+      "value"
+    ],
+    "IList.Insert": [
+      "index",
+      "obj"
+    ],
+    "IList.Remove": [
+      "obj"
+    ],
+    "IList.RemoveAt": [
+      "index"
+    ],
+    "Color.GetAlphaComponent": [
+      "color"
+    ],
+    "Color.GetBlueComponent": [
+      "color"
+    ],
+    "Color.GetGreenComponent": [
+      "color"
+    ],
+    "Color.GetRedComponent": [
+      "color"
+    ],
+    "Color.Argb": [
+      "alpha",
+      "red",
+      "green",
+      "blue"
+    ],
+    "Color.Rgb": [
+      "red",
+      "green",
+      "blue"
+    ],
+    "Image.Save": [
+      "fileName",
+      "format"
+    ],
+    "Image.FromFile": [
+      "fileName"
+    ],
+    "CollectionBase.AddRange": [
+      "ie"
+    ],
+    "CollectionBase.ChangeItemIndex": [
+      "currentIndex",
+      "newIndex"
+    ],
+    "CollectionBase.Contains": [
+      "obj"
+    ],
+    "CollectionBase.IndexOf": [
+      "value"
+    ],
+    "CollectionBase.Index": [
+      "value"
+    ],
+    "CollectionBase.Insert": [
+      "index",
+      "obj"
+    ],
+    "CollectionBase.Remove": [
+      "obj"
+    ],
+    "CollectionBase.RemoveAt": [
+      "index"
+    ],
+    "CollectionBase.Sum": [
+      "template"
+    ],
+    "UEObject.Contains": [
+      "fieldName"
+    ],
+    "UEObject.RemoveAttribute": [
+      "attributeName"
+    ],
+    "UEObject.SetAttribute": [
+      "name",
+      "value"
+    ],
+    "UEObject.GetAttribute": [
+      "name"
+    ],
+    "UEObject.AddNode": [
+      "name",
+      "value"
+    ],
+    "UEObject.GetNode": [
+      "name"
+    ],
+    "UEObject.GetNodes": [
+      "name"
+    ],
+    "UEObject.SetDateTimeFormat": [
+      "format"
+    ],
+    "UEObject.FromXml": [
+      "xml"
+    ],
+    "UEObject.ToXml": [
+      "withDeclaration"
+    ],
+    "UEObject.FromJson": [
+      "json"
+    ],
+    "UEObject.ToJson": [
+      "hasAttributePrefix"
+    ],
+    "DictionaryItemCollection.Add": [
+      "dictionaryItem"
+    ],
+    "DictionaryItemCollection.IndexOf": [
+      "dictionaryEntry"
+    ],
+    "DictionaryItemCollection.Contains": [
+      "dictionaryItem"
+    ],
+    "DictionaryItemCollection.Remove": [
+      "dictionaryEntry"
+    ],
+    "Dictionary.Add": [
+      "de"
+    ],
+    "Dictionary.Remove": [
+      "key"
+    ],
+    "Dictionary.ContainsKey": [
+      "key"
+    ],
+    "Dictionary.ContainsValue": [
+      "value"
+    ],
+    "RotateCollection.Add": [
+      "value"
+    ],
+    "RotateCollection.Contains": [
+      "value"
+    ],
+    "RotateCollection.IndexOf": [
+      "value"
+    ],
+    "RotateCollection.Insert": [
+      "index",
+      "value"
+    ],
+    "RotateCollection.Remove": [
+      "value"
+    ],
+    "ListItemCollection.Contains": [
+      "item"
+    ],
+    "ListItemCollection.IndexOf": [
+      "item"
+    ],
+    "MainApp.AfterLogin": [
+      "currentUser",
+      "currentGroup",
+      "this"
+    ],
+    "MainApp.Logout": [
+      "user",
+      "group"
+    ],
+    "MainApp.ObtainLicense": [
+      "licenseManager",
+      "user",
+      "group"
+    ],
+    "UserCollection.IndexOf": [
+      "user"
+    ],
+    "UserCollection.Contains": [
+      "user"
+    ],
+    "UserCollection.FindByName": [
+      "name"
+    ],
+    "UserCollection.FindById": [
+      "id"
+    ],
+    "UserCollection.FindByPassword": [
+      "password"
+    ],
+    "UserCollection.FindByDescription": [
+      "description"
+    ],
+    "UserCollection.FindByBarcode": [
+      "barcode"
+    ],
+    "UserCollection.FindByGroupId": [
+      "groupId"
+    ],
+    "QuantityItemCollection.IndexOf": [
+      "quantityItem"
+    ],
+    "QuantityItemCollection.Contains": [
+      "quantityItem"
+    ],
+    "QuantityItemCollection.FindByPacking": [
+      "packing"
+    ],
+    "QuantityItemCollection.FindByQuantity": [
+      "quantity"
+    ],
+    "LocationCollection.Contains": [
+      "location"
+    ],
+    "LocationCollection.FindByBarcode": [
+      "barcode"
+    ],
+    "LocationCollection.FindByName": [
+      "name"
+    ],
+    "LocationCollection.FindByDescription": [
+      "description"
+    ],
+    "LocationCollection.FindById": [
+      "id"
+    ],
+    "MathOps.Round": [
+      "val",
+      "digits",
+      "orient"
+    ],
+    "UserGroupCollection.IndexOf": [
+      "userGroup"
+    ],
+    "UserGroupCollection.Contains": [
+      "userGroup"
+    ],
+    "UserGroupCollection.FindById": [
+      "id"
+    ],
+    "UserGroupCollection.FindByName": [
+      "name"
+    ],
+    "UserGroupCollection.FindByBatchMode": [
+      "batchMode"
+    ],
+    "Ean128Compact.SetSelectedProduct": [
+      "product"
+    ],
+    "Ean128Compact.FillEan128ProductFields": [
+      "product"
+    ],
+    "Ean128Compact.Contains": [
+      "ai"
+    ],
+    "Ean128Compact.GetValue": [
+      "ai"
+    ],
+    "Ean128Compact.GetStringValue": [
+      "ai"
+    ],
+    "Ean128Compact.GetObjectValue": [
+      "ai"
+    ],
+    "InfoStringCollection.Add": [
+      "infoString"
+    ],
+    "InfoStringCollection.IndexOf": [
+      "infoString"
+    ],
+    "InfoStringCollection.Contains": [
+      "infoString"
+    ],
+    "InfoStringCollection.Remove": [
+      "infoString"
+    ],
+    "InfoStringCollection.FindByKeyName": [
+      "keyName"
+    ],
+    "InfoStringCollection.FindByPrefix": [
+      "prefix"
+    ],
+    "InfoStringCollection.FindByShowEmpty": [
+      "showEmpty"
+    ],
+    "InfoStringCollection.FindByEmptyString": [
+      "emptyString"
+    ],
+    "SettingInfoCollection.Add": [
+      "settingInfo"
+    ],
+    "SettingInfoCollection.IndexOf": [
+      "settingInfo"
+    ],
+    "SettingInfoCollection.Contains": [
+      "settingInfo"
+    ],
+    "SettingInfoCollection.Remove": [
+      "settingInfo"
+    ],
+    "SettingInfoCollection.FindByName": [
+      "settingInfoName"
+    ],
+    "SettingAttributeCollection.Add": [
+      "settingAttribute"
+    ],
+    "SettingAttributeCollection.IndexOf": [
+      "settingAttribute"
+    ],
+    "SettingAttributeCollection.Contains": [
+      "settingAttribute"
+    ],
+    "SettingAttributeCollection.Remove": [
+      "settingAttribute"
+    ],
+    "SettingAttributeCollection.FindByName": [
+      "attributeName"
+    ],
+    "SettingsCollection.Add": [
+      "settings"
+    ],
+    "SettingsCollection.IndexOf": [
+      "settings"
+    ],
+    "SettingsCollection.Contains": [
+      "settings"
+    ],
+    "SettingsCollection.Remove": [
+      "settings"
+    ],
+    "SettingsCollection.FindByName": [
+      "groupName"
+    ],
+    "LocationFieldInfoCollection.Add": [
+      "fieldInfo"
+    ],
+    "LocationFieldInfoCollection.IndexOf": [
+      "fieldInfo"
+    ],
+    "LocationFieldInfoCollection.Contains": [
+      "fieldInfo"
+    ],
+    "LocationFieldInfoCollection.Remove": [
+      "fieldInfo"
+    ],
+    "LocationFieldInfoCollection.FindByFieldName": [
+      "fieldName"
+    ],
+    "LocationFieldInfoCollection.FindByAlias": [
+      "alias"
+    ],
+    "LocationFieldInfoCollection.FindByUni": [
+      "uni"
+    ],
+    "ContainerTypeFieldInfoCollection.Add": [
+      "fieldInfo"
+    ],
+    "ContainerTypeFieldInfoCollection.IndexOf": [
+      "fieldInfo"
+    ],
+    "ContainerTypeFieldInfoCollection.Contains": [
+      "fieldInfo"
+    ],
+    "ContainerTypeFieldInfoCollection.Remove": [
+      "fieldInfo"
+    ],
+    "ContainerTypeFieldInfoCollection.FindByFieldName": [
+      "fieldName"
+    ],
+    "ContainerTypeFieldInfoCollection.FindByAlias": [
+      "alias"
+    ],
+    "ContainerTypeFieldInfoCollection.FindByUni": [
+      "uni"
+    ],
+    "TableBlockRowCollection.Add": [
+      "row"
+    ],
+    "TableBlockRowCollection.IndexOf": [
+      "row"
+    ],
+    "TableBlockRowCollection.Contains": [
+      "row"
+    ],
+    "TableBlockRowCollection.Remove": [
+      "row"
+    ],
+    "TableBlockRowCollection.Insert": [
+      "index",
+      "row"
+    ],
+    "InventoryItemRecordCollection.Add": [
+      "inventoryItemRecord"
+    ],
+    "InventoryItemRecordCollection.AddRange": [
+      "list"
+    ],
+    "InventoryItemRecordCollection.IndexOf": [
+      "inventoryItemRecord"
+    ],
+    "InventoryItemRecordCollection.Contains": [
+      "inventoryItemRecord"
+    ],
+    "InventoryItemRecordCollection.Remove": [
+      "inventoryItemRecord"
+    ],
+    "InventoryItemRecordCollection.RemoveByIds": [
+      "inventoryItemRecordId",
+      "unitOfMeasureId"
+    ],
+    "InventoryItemRecordCollection.FindByProduct": [
+      "inventoryItem"
+    ],
+    "InventoryItemRecordCollection.FindByPacking": [
+      "unitOfMeasure"
+    ],
+    "InventoryItemRecordCollection.FindBySSCC": [
+      "sSCC"
+    ],
+    "InventoryItemRecordCollection.FindByIds": [
+      "inventoryItemId",
+      "unitOfMeasureId"
+    ],
+    "InventoryItemRecordCollection.FindByProductId": [
+      "inventoryItemId"
+    ],
+    "InventoryItemRecordCollection.FindByExpiryDate": [
+      "expiryDate"
+    ],
+    "InventoryItemRecordCollection.FindByQuantity": [
+      "quantity"
+    ],
+    "InventoryItemRecordCollection.FindByRegistrationDate": [
+      "registrationDate"
+    ],
+    "InventoryItemRecordCollection.TopBottom": [
+      "inventoryItemRecord",
+      "top"
+    ],
+    "InventoryItemRecordCollection.TopBottomLine": [
+      "inventoryItemRecord",
+      "top"
+    ],
+    "HybridCollection.AddCollection": [
+      "collection",
+      "collectionHeader"
+    ],
+    "HybridCollection.RemoveCollection": [
+      "collection"
+    ],
+    "HybridCollection.Add": [
+      "value"
+    ],
+    "HybridCollection.Contains": [
+      "value"
+    ],
+    "HybridCollection.IndexOf": [
+      "value"
+    ],
+    "HybridCollection.Insert": [
+      "index",
+      "value"
+    ],
+    "HybridCollection.Remove": [
+      "value"
+    ],
+    "HybridCollection.RemoveAt": [
+      "index"
+    ],
+    "DeviceInfo.ContainsField": [
+      "fieldName"
+    ],
+    "DeviceInfo.Contains": [
+      "fieldName"
+    ],
+    "DocumentCollection.Add": [
+      "document"
+    ],
+    "DocumentCollection.IndexOf": [
+      "document"
+    ],
+    "DocumentCollection.Contains": [
+      "document"
+    ],
+    "DocumentCollection.Remove": [
+      "document"
+    ],
+    "DocumentCollection.FindById": [
+      "id"
+    ],
+    "DocumentCollection.FindByName": [
+      "name"
+    ],
+    "DocumentCollection.FindByUserId": [
+      "userId"
+    ],
+    "DocumentCollection.FindByUserName": [
+      "userName"
+    ],
+    "DocumentCollection.FindByAppointment": [
+      "appointment"
+    ],
+    "DocumentCollection.FindByCreateDate": [
+      "createDate"
+    ],
+    "DocumentCollection.FindByDocumentTypeName": [
+      "documentTypeName"
+    ],
+    "DocumentCollection.FindByModified": [
+      "modified"
+    ],
+    "DocumentCollection.FindByInProcess": [
+      "inProcess"
+    ],
+    "DocumentCollection.FindByFinished": [
+      "userId",
+      "finished"
+    ],
+    "DocumentCollection.FindByLocationId": [
+      "warehouseId"
+    ],
+    "DocumentCollection.FindByBarcode": [
+      "barcode"
+    ],
+    "DocumentCollection.FindByPriority": [
+      "priority"
+    ],
+    "DocumentCollection.FindByDescription": [
+      "description"
+    ],
+    "DocumentCollection.FindByDistributeByBarcode": [
+      "distributeByBarcode"
+    ],
+    "OperationCollection.Add": [
+      "documentType"
+    ],
+    "OperationCollection.Insert": [
+      "index",
+      "op"
+    ],
+    "OperationCollection.IndexOf": [
+      "documentType"
+    ],
+    "OperationCollection.Contains": [
+      "documentType"
+    ],
+    "OperationCollection.Remove": [
+      "documentType"
+    ],
+    "OperationCollection.FindByName": [
+      "name"
+    ],
+    "UnitOfMeasureCollection.Add": [
+      "unitOfMeasure"
+    ],
+    "UnitOfMeasureCollection.AddRange": [
+      "list"
+    ],
+    "UnitOfMeasureCollection.FindByName": [
+      "name"
+    ],
+    "UnitOfMeasureCollection.FindBySelfWeight": [
+      "selfWeight"
+    ],
+    "UnitOfMeasureCollection.FindBySelfVolume": [
+      "selfVolume"
+    ],
+    "UnitOfMeasureCollection.FindByUnitsQuantity": [
+      "unitsQuantity"
+    ],
+    "UnitOfMeasureCollection.FindByBarcode": [
+      "barcode"
+    ],
+    "UnitOfMeasureCollection.FindById": [
+      "id"
+    ],
+    "UnitOfMeasureCollection.FindByPartNumber": [
+      "partNumber"
+    ],
+    "DocumentTableCollection.Add": [
+      "documentTable"
+    ],
+    "DocumentTableCollection.IndexOf": [
+      "documentTable"
+    ],
+    "DocumentTableCollection.Contains": [
+      "documentTable"
+    ],
+    "DocumentTableCollection.Remove": [
+      "documentTable"
+    ],
+    "DocumentTableCollection.FindByName": [
+      "name"
+    ],
+    "DocumentStateCollection.Add": [
+      "documentState"
+    ],
+    "DocumentStateCollection.IndexOf": [
+      "documentState"
+    ],
+    "DocumentStateCollection.Contains": [
+      "documentState"
+    ],
+    "DocumentStateCollection.Remove": [
+      "documentState"
+    ],
+    "DocumentStateCollection.FindByUserId": [
+      "userId"
+    ],
+    "DocumentStateCollection.FindByModifiedDate": [
+      "date"
+    ],
+    "DocumentStateCollection.FindByInProcessDate": [
+      "date"
+    ],
+    "DocumentStateCollection.FindByFinishedDate": [
+      "date"
+    ],
+    "DocumentStateCollection.FindByModified": [
+      "modified"
+    ],
+    "DocumentStateCollection.FindByInProcess": [
+      "inProcess"
+    ],
+    "DocumentStateCollection.FindByFinished": [
+      "finished"
+    ],
+    "AudioPlayer.Play": [
+      "file",
+      "vibrate"
+    ],
+    "AudioPlayer.PlayError": [
+      "vibrate"
+    ],
+    "AudioPlayer.PlayIncome": [
+      "vibrate"
+    ],
+    "AudioPlayer.PlayCell": [
+      "vibrate"
+    ],
+    "AudioPlayer.PlayRfid": [
+      "vibrate"
+    ],
+    "AudioPlayer.PlayBatteryOut": [
+      "vibrate"
+    ],
+    "AudioPlayer.PlayMessage": [
+      "vibrate"
+    ],
+    "AudioPlayer.PlayBarcode": [
+      "vibrate"
+    ],
+    "TableBlockColumnCollection.Add": [
+      "column"
+    ],
+    "TableBlockColumnCollection.IndexOf": [
+      "column"
+    ],
+    "TableBlockColumnCollection.Contains": [
+      "column"
+    ],
+    "TableBlockColumnCollection.Remove": [
+      "column"
+    ],
+    "TableBlockColumnCollection.GetTotalWidth": [
+      "units"
+    ],
+    "CheckMark.IsSerialNeed": [
+      "pdf417Barcode"
+    ],
+    "CheckMark.GetAlcoCode": [
+      "pdf417Barcode"
+    ],
+    "CheckMark.GetBarcodeType": [
+      "strScanType"
+    ],
+    "CheckMark.GetScanType": [
+      "strBarcodeType"
+    ],
+    "CheckMark.GetAlcoCodeFromPDF417": [
+      "pdf417Barcode"
+    ],
+    "InventoryItemsAccessObject.FindById": [
+      "id"
+    ],
+    "InventoryItemsAccessObject.FindByPartNumberAndId": [
+      "code",
+      "quick",
+      "onlyBase"
+    ],
+    "InventoryItemsAccessObject.FindByUnitOfMeasureBarcode": [
+      "barcodeData",
+      "quick",
+      "withCommonTemplates"
+    ],
+    "InventoryItemsAccessObject.FindByInventoryItemBarcode": [
+      "barcodeData"
+    ],
+    "CustomSettingsAccessObject.GetField": [
+      "fieldName"
+    ],
+    "CustomSettingsAccessObject.SetField": [
+      "fieldName",
+      "value"
+    ],
+    "ItemsColumnCollection.Add": [
+      "column"
+    ],
+    "ItemsColumnCollection.IndexOf": [
+      "column"
+    ],
+    "ItemsColumnCollection.Contains": [
+      "column"
+    ],
+    "ItemsColumnCollection.Remove": [
+      "column"
+    ],
+    "ItemsColumnCollection.GetTotalWidth": [
+      "units"
+    ],
+    "InventoryItemCollection.Add": [
+      "inventoryItem"
+    ],
+    "InventoryItemCollection.AddRange": [
+      "list"
+    ],
+    "InventoryItemCollection.IndexOf": [
+      "inventoryItem"
+    ],
+    "InventoryItemCollection.Contains": [
+      "inventoryItem"
+    ],
+    "InventoryItemCollection.Remove": [
+      "inventoryItem"
+    ],
+    "InventoryItemCollection.FindById": [
+      "id"
+    ],
+    "InventoryItemCollection.FindByName": [
+      "name"
+    ],
+    "InventoryItemCollection.FindByUnitId": [
+      "unitId"
+    ],
+    "InventoryItemCollection.FindByBarcode": [
+      "barcodeData"
+    ],
+    "InventoryItemCollection.FindByUnitOfMeasureId": [
+      "unitOfMeasureId"
+    ],
+    "InventoryItemCollection.FindByPartNumber": [
+      "partNumber"
+    ],
+    "InventoryItemCollection.FindByUnitOfMeasureBarcode": [
+      "barcode"
+    ],
+    "MobileComputer.Vibrate": [
+      "ms"
+    ],
+    "User.ContainsField": [
+      "fieldName"
+    ],
+    "User.Contains": [
+      "fieldName"
+    ],
+    "BarcodeScanner.EnableBarcodeType": [
+      "type",
+      "enableOnlyThis"
+    ],
+    "BarcodeScanner.DisableBarcodeType": [
+      "type"
+    ],
+    "BarcodeScanner.SetContinuousScanDelay": [
+      "value"
+    ],
+    "BarcodeScanner.SetContinuousSameBarcodesMode": [
+      "state"
+    ],
+    "AppInstanceInfo.SearchApplicationInfoById": [
+      "id"
+    ],
+    "MultiIndexCollection.Add": [
+      "obj"
+    ],
+    "MultiIndexCollection.IndexOf": [
+      "obj"
+    ],
+    "MultiIndexCollection.Contains": [
+      "obj"
+    ],
+    "MultiIndexCollection.Remove": [
+      "obj"
+    ],
+    "Location.ContainsField": [
+      "fieldName"
+    ],
+    "Location.Contains": [
+      "fieldName"
+    ],
+    "Location.LocatedIn": [
+      "topLevelLocationId",
+      "includeTopLevel"
+    ],
+    "StringCollection.Add": [
+      "str"
+    ],
+    "StringCollection.IndexOf": [
+      "str"
+    ],
+    "StringCollection.Contains": [
+      "str"
+    ],
+    "StringCollection.Remove": [
+      "str"
+    ],
+    "StringCollection.Insert": [
+      "index",
+      "value"
+    ],
+    "ObjectCollection.Add": [
+      "obj"
+    ],
+    "ObjectCollection.IndexOf": [
+      "obj"
+    ],
+    "ObjectCollection.Contains": [
+      "obj"
+    ],
+    "ObjectCollection.Remove": [
+      "obj"
+    ],
+    "ObjectCollection.Insert": [
+      "index",
+      "value"
+    ],
+    "ControlCollection.Add": [
+      "control"
+    ],
+    "ControlCollection.IndexOf": [
+      "control"
+    ],
+    "ControlCollection.Contains": [
+      "control"
+    ],
+    "ControlCollection.Remove": [
+      "control"
+    ],
+    "ControlCollection.FindByKey": [
+      "key"
+    ],
+    "ControlCollection.Insert": [
+      "index",
+      "value"
+    ],
+    "ActionCollection.Add": [
+      "action"
+    ],
+    "ActionCollection.IndexOf": [
+      "action"
+    ],
+    "ActionCollection.Contains": [
+      "action"
+    ],
+    "ActionCollection.Remove": [
+      "action"
+    ],
+    "ActionCollection.FindByName": [
+      "name"
+    ],
+    "ActionCollection.FindByCancelText": [
+      "cancelText"
+    ],
+    "ActionCollection.FindByHeaderText": [
+      "headerText"
+    ],
+    "ActionCollection.Insert": [
+      "index",
+      "value"
+    ],
+    "FieldInfoCollection.Add": [
+      "fieldInfo"
+    ],
+    "FieldInfoCollection.IndexOf": [
+      "fieldInfo"
+    ],
+    "FieldInfoCollection.Contains": [
+      "fieldInfo"
+    ],
+    "FieldInfoCollection.Remove": [
+      "fieldInfo"
+    ],
+    "FieldInfoCollection.FindByFieldName": [
+      "fieldName"
+    ],
+    "FieldInfoCollection.FindByAlias": [
+      "alias"
+    ],
+    "FieldInfoCollection.FindByUni": [
+      "uni"
+    ],
+    "DocumentTableInfoCollection.Add": [
+      "documentTableInfo"
+    ],
+    "DocumentTableInfoCollection.IndexOf": [
+      "documentTableInfo"
+    ],
+    "DocumentTableInfoCollection.Contains": [
+      "documentTableInfo"
+    ],
+    "DocumentTableInfoCollection.Remove": [
+      "documentTableInfo"
+    ],
+    "DocumentTableInfoCollection.FindByName": [
+      "name"
+    ],
+    "DocumentTableInfoCollection.FindByUni": [
+      "name"
+    ],
+    "DocumentQuery.SelectLines": [
+      "allLines",
+      "session"
+    ],
+    "DocumentAttachments.Add": [
+      "pic"
+    ],
+    "DataSearchModeCollection.Add": [
+      "obj"
+    ],
+    "DataSearchModeCollection.AddIfNotExists": [
+      "obj"
+    ],
+    "DataSearchModeCollection.Swap": [
+      "first",
+      "second"
+    ],
+    "DataSearchModeCollection.IndexOf": [
+      "obj"
+    ],
+    "DataSearchModeCollection.Contains": [
+      "obj"
+    ],
+    "DataSearchModeCollection.Remove": [
+      "obj"
+    ],
+    "DataSearchModeCollection.FromString": [
+      "str"
+    ],
+    "InvokeParameterCollection.Add": [
+      "item"
+    ],
+    "InvokeParameterCollection.Insert": [
+      "index",
+      "item"
+    ],
+    "InvokeParameterCollection.IndexOf": [
+      "item"
+    ],
+    "InvokeParameterCollection.Remove": [
+      "item"
+    ],
+    "InvokeParameterCollection.Contains": [
+      "item"
+    ],
+    "InvokeParameterCollection.FindByName": [
+      "name"
+    ],
+    "InventoryItem.ContainsIn": [
+      "coll"
+    ],
+    "InventoryItem.ContainsField": [
+      "fieldName"
+    ],
+    "InventoryItem.Contains": [
+      "fieldName"
+    ],
+    "FieldValueCollection.Add": [
+      "fieldValue"
+    ],
+    "FieldValueCollection.IndexOf": [
+      "fieldValue"
+    ],
+    "FieldValueCollection.Contains": [
+      "fieldValue"
+    ],
+    "FieldValueCollection.Remove": [
+      "fieldValue"
+    ],
+    "FieldValueCollection.FindByFieldName": [
+      "fieldName"
+    ],
+    "FieldValueCollection.IndexOfField": [
+      "fieldName"
+    ],
+    "Length.Parse": [
+      "str"
+    ],
+    "Picture.Save": [
+      "path",
+      "imageFormat"
+    ],
+    "FieldEditLineCollection.Add": [
+      "block"
+    ],
+    "FieldEditLineCollection.IndexOf": [
+      "block"
+    ],
+    "FieldEditLineCollection.Contains": [
+      "block"
+    ],
+    "FieldEditLineCollection.Remove": [
+      "block"
+    ],
+    "FieldEditLineCollection.Insert": [
+      "index",
+      "value"
+    ],
+    "FormattedPageBlockCollection.Add": [
+      "block"
+    ],
+    "FormattedPageBlockCollection.IndexOf": [
+      "block"
+    ],
+    "FormattedPageBlockCollection.Contains": [
+      "block"
+    ],
+    "FormattedPageBlockCollection.Remove": [
+      "block"
+    ],
+    "FormattedPageBlockCollection.Insert": [
+      "index",
+      "block"
+    ],
+    "DocumentTypeCollection.Add": [
+      "documentType"
+    ],
+    "DocumentTypeCollection.IndexOf": [
+      "documentType"
+    ],
+    "DocumentTypeCollection.Contains": [
+      "documentType"
+    ],
+    "DocumentTypeCollection.Remove": [
+      "documentType"
+    ],
+    "DocumentTypeCollection.FindByName": [
+      "name"
+    ],
+    "DocumentTypeCollection.FindByClientCreating": [
+      "clientCreating"
+    ],
+    "DocumentTypeCollection.FindByAlias": [
+      "alias"
+    ],
+    "DocumentTypeCollection.FindByUni": [
+      "uni"
+    ],
+    "DocumentTypeCollection.FindByInput": [
+      "input"
+    ],
+    "DocumentTypeCollection.FindByOutput": [
+      "output"
+    ],
+    "DocumentTypeCollection.FindByLabelTypeName": [
+      "labelTypeName"
+    ],
+    "DocumentTypeCollection.FindByManualDocumentSelection": [
+      "manualDocumentSelection"
+    ],
+    "DocumentTypeCollection.FindByBarcodeDocumentSelection": [
+      "barcodeDocumentSelection"
+    ],
+    "DocumentTypeCollection.FindByCyclic": [
+      "cyclic"
+    ],
+    "DocumentTypeCollection.FindByManualExit": [
+      "manualExit"
+    ],
+    "DocumentTypeCollection.Insert": [
+      "index",
+      "value"
+    ],
+    "Ean128.Contains": [
+      "ai"
+    ],
+    "Ean128.GetValue": [
+      "ai"
+    ],
+    "Ean128.GetStringValue": [
+      "ai"
+    ],
+    "Ean128.GetObjectValue": [
+      "ai"
+    ],
+    "Ean128.FindGTIN": [
+      "barcode"
+    ],
+    "Ean128.GetQty": [
+      "barcode"
+    ],
+    "Ean128.Format": [
+      "rawean"
+    ],
+    "Ean128.FormatAnyway": [
+      "rawean"
+    ],
+    "Ean128.SetEan128FactoryType": [
+      "ean128Type"
+    ],
+    "Ean128.ConvertFromEnum": [
+      "eanValue"
+    ],
+    "Ean128.GetAiInfo": [
+      "aipreffix"
+    ],
+    "Ean128.FormatAndParse": [
+      "barcode"
+    ],
+    "Ean128.Parse": [
+      "barcode"
+    ],
+    "Ean128.UPCfromGTIN": [
+      "gtin"
+    ],
+    "RfidChipModel.GetSgtinSerial": [
+      "hex"
+    ],
+    "RfidChipModel.GetBankSize": [
+      "bankid"
+    ],
+    "RfidChipModel.GetBankMaxSize": [
+      "bankid"
+    ],
+    "RfidTag.TIDBANKFromUri": [
+      "uri"
+    ],
+    "ObjectIdentity.Encode": [
+      "alignToWords"
+    ],
+    "ObjectIdentity.Decode": [
+      "tagId",
+      "pc"
+    ],
+    "Uii.FromError": [
+      "error"
+    ],
+    "Uii.Decode": [
+      "hexUII",
+      "throwException"
+    ],
+    "Epc.FromError": [
+      "error"
+    ],
+    "Epc.FromBarcode": [
+      "filterValue",
+      "barcode"
+    ],
+    "Epc.Compatible": [
+      "epc"
+    ],
+    "Epc.GetGTIN14CompanyPrefix": [
+      "gtin"
+    ],
+    "RfidCommand.Parse": [
+      "command"
+    ],
+    "RelativeOid.GetOid": [
+      "standard",
+      "oidValue"
+    ],
+    "DataElementCollection.GetElement": [
+      "oid"
+    ],
+    "DataElementCollection.Contains": [
+      "key"
+    ],
+    "DataElementCollection.Remove": [
+      "key"
+    ],
+    "DataElementCollection.Add": [
+      "item"
+    ],
+    "DataElementCollection.IndexOf": [
+      "item"
+    ],
+    "DataElementCollection.Insert": [
+      "index",
+      "item"
+    ],
+    "RfidTagCollection.Add": [
+      "tagId"
+    ],
+    "RfidTagCollection.AddByTagId": [
+      "tagId"
+    ],
+    "RfidTagCollection.BinarySearch": [
+      "item"
+    ],
+    "RfidTagCollection.Contains": [
+      "item"
+    ],
+    "RfidTagCollection.IndexOf": [
+      "item"
+    ],
+    "RfidTagCollection.Insert": [
+      "index",
+      "item"
+    ],
+    "RfidTagCollection.LastIndexOf": [
+      "item"
+    ],
+    "RfidTagCollection.Remove": [
+      "item"
+    ],
+    "RfidTagCollection.RemoveRange": [
+      "index",
+      "count"
+    ],
+    "LicenseManager.GetAllLocalLicenses": [
+      "isSortNeeded"
+    ],
+    "LicenseManager.CheckCompabilityByMarking": [
+      "dbMarking",
+      "licenseMarking"
+    ],
+    "AppsOps.StartDiscoverBasesForMSServer": [
+      "msServerInfo"
+    ],
+    "AppsOps.SelectBase": [
+      "appInfo",
+      "updateMode",
+      "register"
+    ],
+    "AppsOps.RemoveBase": [
+      "appInfo"
+    ],
+    "AppsOps.CheckExistBase": [
+      "barcodeString"
+    ],
+    "AppsOps.TryParseScannedBaseString": [
+      "value"
+    ],
+    "AppsOps.OpenClassicBaseByBarcode": [
+      "url"
+    ],
+    "AppsOps.CheckCloudLiteConnection": [
+      "timeout"
+    ],
+    "AppsOps.OpenCloudLiteBaseByBarcode": [
+      "scannedBarcode"
+    ],
+    "AppsOps.CloudLiteTryDeviceRegister": [
+      "barcodeString"
+    ],
+    "AppsOps.CloudLiteRetryConfirmationRequest": [
+      "cs"
+    ],
+    "AppInstanceInfoList.FindById": [
+      "id"
+    ],
+    "PrinterBase.Print": [
+      "labelBody"
+    ],
+    "PrinterBase.CompareUrl": [
+      "url"
+    ],
+    "ImagePrinter.GetDpi": [
+      "url",
+      "model"
+    ],
+    "ImagePrinter.CouldBeImagePrinterUrl": [
+      "url"
+    ],
+    "Document.ContainsField": [
+      "fieldName"
+    ],
+    "Document.Contains": [
+      "fieldName"
+    ],
+    "Document.BeforeEdit": [
+      "user",
+      "userGroup",
+      "docHead"
+    ],
+    "Document.Edit": [
+      "user",
+      "userGroup",
+      "document"
+    ],
+    "Document.BeforeUpload": [
+      "user",
+      "userGroup",
+      "document",
+      "docNumber",
+      "docsCount"
+    ],
+    "Table.GetField": [
+      "fieldName"
+    ],
+    "Table.SetField": [
+      "fieldName",
+      "value"
+    ],
+    "Table.ContainsField": [
+      "fieldName"
+    ],
+    "Table.Contains": [
+      "fieldName"
+    ],
+    "Table.Add": [
+      "rows"
+    ],
+    "Table.Remove": [
+      "rows"
+    ],
+    "Table.Merge": [
+      "rows"
+    ],
+    "Table.GetExtension": [
+      "document"
+    ],
+    "ContainerType.ContainsField": [
+      "fieldName"
+    ],
+    "ContainerType.Contains": [
+      "fieldName"
+    ],
+    "Container.ContainsField": [
+      "fieldName"
+    ],
+    "Container.Contains": [
+      "fieldName"
+    ],
+    "UnitOfMeasure.ConvertTo": [
+      "value",
+      "unitOfMeasure"
+    ],
+    "UnitOfMeasure.ConvertFrom": [
+      "value",
+      "unitOfMeasure"
+    ],
+    "UnitOfMeasure.ContainsField": [
+      "fieldName"
+    ],
+    "RESERVED_BANK.Decode": [
+      "bankBinaryString"
+    ],
+    "EPCUII_BANK.FromError": [
+      "error"
+    ],
+    "EPCUII_BANK.Decode": [
+      "epcbankBinaryString"
+    ],
+    "TID_BANK.Decode": [
+      "tidbankBinaryString"
+    ],
+    "TID_BANK.FromURI": [
+      "uri"
+    ],
+    "USER_BANK.FromError": [
+      "error"
+    ],
+    "USER_BANK.Decode": [
+      "hexString"
+    ],
+    "DocumentDescription.ContainsField": [
+      "fieldName"
+    ],
+    "DocumentDescription.Contains": [
+      "fieldName"
+    ],
+    "DocumentDescriptionCollection.Add": [
+      "documentDescription"
+    ],
+    "DocumentDescriptionCollection.IndexOf": [
+      "documentDescription"
+    ],
+    "DocumentDescriptionCollection.Contains": [
+      "documentDescription"
+    ],
+    "DocumentDescriptionCollection.Remove": [
+      "documentDescription"
+    ],
+    "DocumentItem.SetField": [
+      "fieldName",
+      "value"
+    ],
+    "DocumentItem.GetExpectedQuantityInUnits": [
+      "inventoryItem",
+      "unitOfMeasure"
+    ],
+    "DocumentItem.GetActualQuantityInUnits": [
+      "inventoryItem",
+      "unitOfMeasure"
+    ],
+    "DocumentItem.ContainsField": [
+      "fieldName"
+    ],
+    "DocumentItem.Contains": [
+      "fieldName"
+    ],
+    "DocumentItem.Create": [
+      "inventoryItemRecord",
+      "docType"
+    ],
+    "DocumentItemCollection.IsIndexedField": [
+      "fieldName"
+    ],
+    "DocumentItemCollection.SearchByField": [
+      "fieldName",
+      "value"
+    ],
+    "DocumentItemCollection.SearchFirstByField": [
+      "fieldName",
+      "value"
+    ],
+    "DocumentItemCollection.Add": [
+      "documentItem"
+    ],
+    "DocumentItemCollection.AddRange": [
+      "list"
+    ],
+    "DocumentItemCollection.Insert": [
+      "index",
+      "documentItem"
+    ],
+    "DocumentItemCollection.TopBottom": [
+      "documentItem",
+      "top"
+    ],
+    "DocumentItemCollection.TopBottomLine": [
+      "documentItem",
+      "top"
+    ],
+    "DocumentItemCollection.IndexOf": [
+      "documentItem"
+    ],
+    "DocumentItemCollection.Contains": [
+      "documentItem"
+    ],
+    "DocumentItemCollection.FindByUid": [
+      "uid"
+    ],
+    "DocumentItemCollection.FindByInventoryItemId": [
+      "inventoryItemId"
+    ],
+    "DocumentItemCollection.FirstByInventoryItemId": [
+      "inventoryItemId"
+    ],
+    "DocumentItemCollection.FindByExpectedQuantity": [
+      "expectedQuantity"
+    ],
+    "DocumentItemCollection.FindByActualQuantity": [
+      "actualQuantity"
+    ],
+    "DocumentItemCollection.FindByFirstStorageId": [
+      "firstStorageId"
+    ],
+    "DocumentItemCollection.FindByFirstStorageBarcode": [
+      "barcode"
+    ],
+    "DocumentItemCollection.FindBySecondStorageBarcode": [
+      "barcode"
+    ],
+    "DocumentItemCollection.FindByUnitOfMeasureId": [
+      "unitOfMeasureId"
+    ],
+    "DocumentItemCollection.FindBySSCC": [
+      "sSCC"
+    ],
+    "DocumentItemCollection.FindByIds": [
+      "inventoryItemId",
+      "unitOfMeasureId"
+    ],
+    "DocumentItemCollection.FindByRegistrationDate": [
+      "registrationDate"
+    ],
+    "DocumentItemCollection.FindByExpiryDate": [
+      "expiryDate"
+    ],
+    "DocumentItemCollection.FindBySecondStorageId": [
+      "secondCellId"
+    ],
+    "DocumentItemCollection.FindByBindedLine": [
+      "binded"
+    ],
+    "DocumentItemCollection.FindByUnderloadedOrOverloaded": [
+      "val"
+    ],
+    "DocumentItemCollection.GetExpectedQuantityInUnits": [
+      "inventoryItem"
+    ],
+    "DocumentItemCollection.GetExpectedQuantity": [
+      "inventoryItem",
+      "unitOfMeasure"
+    ],
+    "DocumentItemCollection.GetActualQuantityInUnits": [
+      "inventoryItem"
+    ],
+    "DocumentItemCollection.GetActualQuantity": [
+      "inventoryItem",
+      "unitOfMeasure"
+    ],
+    "DocumentItemCollection.FindFirstByField": [
+      "name",
+      "value"
+    ],
+    "DocumentItemCollection.FindByField": [
+      "name",
+      "value"
+    ],
+    "InventoryItemRecord.ChangeUnitOfMeasure": [
+      "newUnitOfMeasure"
+    ],
+    "InventoryItemRecord.ContainsField": [
+      "fieldName"
+    ],
+    "InventoryItemRecord.Contains": [
+      "fieldName"
+    ],
+    "InventoryItemRecord.CreateInventoryItemRecordForResult": [
+      "inventoryItem"
+    ],
+    "Row.GetField": [
+      "fieldName"
+    ],
+    "Row.SetField": [
+      "fieldName",
+      "value"
+    ],
+    "Row.ContainsField": [
+      "fieldName"
+    ],
+    "Row.Contains": [
+      "fieldName"
+    ],
+    "RowCollection.Add": [
+      "row"
+    ],
+    "RowCollection.AddRange": [
+      "list"
+    ],
+    "RowCollection.IndexOf": [
+      "row"
+    ],
+    "RowCollection.Contains": [
+      "row"
+    ],
+    "RowCollection.Remove": [
+      "row"
+    ],
+    "RowCollection.Merge": [
+      "row"
+    ],
+    "RowCollection.FindByField": [
+      "fieldName",
+      "value"
+    ],
+    "RowCollection.FindFirstByField": [
+      "fieldName",
+      "value"
+    ],
+    "RowCollection.TopBottom": [
+      "row",
+      "top"
+    ],
+    "RowCollection.TopBottomLine": [
+      "row",
+      "top"
+    ],
+    "RowCollection.IsIndexedField": [
+      "fieldName"
+    ],
+    "RowCollection.SearchByField": [
+      "fieldName",
+      "value"
+    ],
+    "RowCollection.SearchFirstByField": [
+      "fieldName",
+      "value"
+    ],
+    "\u0422\u0423.IsValidBarcode": [
+      "barcode",
+      "digits"
+    ],
+    "\u0422\u0423.IsPalletBarcode": [
+      "barcode"
+    ],
+    "\u0422\u0423.IsBoxBarcode": [
+      "barcode"
+    ]
+  },
+  "sessionObjects": [
+    "Authorization",
+    "StringOperations",
+    "Server",
+    "DocumentStorage",
+    "GO",
+    "App",
+    "MathOperations",
+    "Device",
+    "EmptyDate",
+    "CurrentDate",
+    "Inventory",
+    "UnknownProduct",
+    "Containers",
+    "Locations",
+    "CustomSettings",
+    "AppSelection",
+    "\u0418\u0442\u043E\u0433\u043E\u0432\u043E\u0435\u0417\u0430\u0434\u0430\u043D\u0438\u0435",
+    "\u0422\u0423"
+  ],
+  "userFields": [
+    "\u0420\u0430\u0441\u0448\u0438\u0440\u0435\u043D\u0438\u0435",
+    "\u041A\u043E\u0434",
+    "\u042D\u0442\u043E\u041F\u0430\u043B\u0435\u0442\u0430",
+    "\u042D\u0442\u043E\u041A\u043E\u0440\u043E\u0431\u043A\u0430"
+  ],
+  "typeFields": {
+    "\u0422\u0423": [
+      "\u0420\u0430\u0441\u0448\u0438\u0440\u0435\u043D\u0438\u0435",
+      "\u041A\u043E\u0434",
+      "\u042D\u0442\u043E\u041F\u0430\u043B\u0435\u0442\u0430",
+      "\u042D\u0442\u043E\u041A\u043E\u0440\u043E\u0431\u043A\u0430"
+    ]
+  },
+  "thisTypes": {
+    "##MainApp__AfterLogin": "MainApp"
+  }
+}

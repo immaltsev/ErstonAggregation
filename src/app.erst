@@ -1,0 +1,7 @@
+expand MainApp
+{
+    client function AfterLogin(User currentUser, UserGroup currentGroup)
+    {
+        GO.ShowBaloon("Система агрегации готова к работе", 2500, true)
+    }
+}

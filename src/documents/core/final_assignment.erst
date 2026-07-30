@@ -1,0 +1,7 @@
+// Объявление типа документа. Реализация разнесена по expand-модулям этой папки.
+@[Alias = "Итоговое задание"]
+@[NeedExchangeDataBeforeOpen = OnlyForServer]
+@[ShowDocumentsFromServerInList = false]
+type ИтоговоеЗадание of Document
+{
+}

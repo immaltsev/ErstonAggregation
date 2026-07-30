@@ -1,0 +1,158 @@
+// Просмотр и редактирование содержимого коробки.
+expand ИтоговоеЗадание
+{
+    client function bool ShowBoxContents(string boxBarcode)
+    {
+        var boxLines = this.GetBoxLines(boxBarcode)
+        if (boxLines.Count == 0)
+        {
+            return false
+        }
+
+        bool closed = this.IsBoxClosed(boxBarcode)
+
+        Document.DocumentItem selected = null
+        ShowItems(
+            Title = "Коробка {boxBarcode}",
+            WelcomeText = "Содержимое коробки:",
+            DataSource = boxLines,
+            SelectedItem = selected,
+            Columns = [
+                new ItemsColumn {
+                    Title = "Наименование",
+                    Format = "{Item.InventoryItem.Name}",
+                    Width = 60%,
+                    Align = ContentAlignment.MiddleLeft
+                },
+                new ItemsColumn {
+                    Title = "Серийный номер",
+                    Format = "{Item.SerialNumber}",
+                    Width = 40%,
+                    Align = ContentAlignment.MiddleCenter
+                }
+            ],
+            FooterText = "<button direction="resume_box" enabled="{!closed}" width="100%">Продолжить сборку</button>" +
+                "<button direction="clear_box" width="100%">Очистить коробку</button>",
+            Controls = [
+                new Control { Key = Keys.Escape, Action = close_contents }
+            ],
+            SaveInHistory = true
+        )
+        on resume_box
+        {
+            return true
+        }
+        on clear_box
+        {
+            if (this.ConfirmAction("Удалить коробку {boxBarcode} и все её товары?", "Очистить"))
+            {
+                this.ClearBox(boxBarcode)
+                GO.ShowBaloon("Коробка {boxBarcode} удалена", 2500, true)
+                return false
+            }
+
+            undo
+        }
+        on close_contents
+        {
+            return false
+        }
+        on return
+        {
+            if (selected != null)
+            {
+                this.ShowMarkDetails(selected)
+                boxLines = this.GetBoxLines(boxBarcode)
+                if (boxLines.Count == 0)
+                {
+                    return false
+                }
+                back
+            }
+
+            undo
+        }
+    }
+
+    client function ClearBox(string boxBarcode)
+    {
+        var lines = this.GetBoxLines(boxBarcode)
+        for (line in lines)
+        {
+            RemoveDocumentLine(DocumentLineToRemove = line)
+            on fail
+            {
+                this.ShowError("Не удалось полностью очистить коробку")
+                return
+            }
+        }
+    }
+
+    client function ShowMarkDetails(Document.DocumentItem line)
+    {
+        var markLines = select item from this.ActualLines where item.Uid == line.Uid
+        Document.DocumentItem selected = line
+
+        ShowItems(
+            Title = "Информация о товаре",
+            WelcomeText = "Марка в коробке {line.SSCC}",
+            DataSource = markLines,
+            SelectedItem = selected,
+            Columns = [
+                new ItemsColumn {
+                    Title = "Наименование",
+                    Format = "{Item.InventoryItem.Name}",
+                    Width = 35%,
+                    Align = ContentAlignment.MiddleLeft
+                },
+                new ItemsColumn {
+                    Title = "GTIN",
+                    Format = "{Item.GTIN}",
+                    Width = 30%,
+                    Align = ContentAlignment.MiddleCenter
+                },
+                new ItemsColumn {
+                    Title = "SN",
+                    Format = "{Item.SerialNumber}",
+                    Width = 35%,
+                    Align = ContentAlignment.MiddleCenter
+                }
+            ],
+            FooterText = "<button direction="delete_mark" width="100%">Удалить</button>",
+            Controls = [
+                new Control { Key = Keys.Escape, Action = close_details }
+            ],
+            SaveInHistory = true
+        )
+        on delete_mark
+        {
+            if (this.ConfirmAction("Удалить марку {line.SerialNumber}?", "Удалить"))
+            {
+                string oldBox = line.SSCC
+                RemoveDocumentLine(DocumentLineToRemove = line)
+                on fail
+                {
+                    this.ShowError("Не удалось удалить товар")
+                    undo
+                }
+
+                var remaining = this.GetBoxLines(oldBox)
+                if (remaining.Count > 0)
+                {
+                    this.SetBoxClosed(oldBox, false)
+                }
+                return
+            }
+
+            undo
+        }
+        on close_details
+        {
+            return
+        }
+        on return
+        {
+            back
+        }
+    }
+}

@@ -1,0 +1,96 @@
+// Общая оболочка документа: главное меню и варианты выхода.
+expand ИтоговоеЗадание
+{
+    client function DocumentEditResult Edit(User currentUser, UserGroup currentGroup)
+    {
+        return this.ShowMainMenu()
+    }
+
+    client function DocumentEditResult ShowMainMenu()
+    {
+        Menu(
+            Title = "Итоговое задание",
+            WelcomeText = "Выберите операцию:",
+            Buttons = [
+                new Control { DisplayText = "Товары в коробки", Action = pack_products },
+                new Control { DisplayText = "Коробки в паллеты", Action = pack_boxes },
+                new Control { DisplayText = "Просмотр набранного", Action = review },
+                new Control {
+                    DisplayText = "Настройки",
+                    Action = settings,
+                    Enabled = this.ActualLines.Count == 0
+                },
+                new Control { DisplayText = "Выход", Action = exit_document }
+            ],
+            Controls = [
+                new Control { Key = Keys.Escape, Action = exit_document }
+            ],
+            SaveInHistory = true
+        )
+        on pack_products
+        {
+            this.PackProducts()
+            back
+        }
+        on pack_boxes
+        {
+            this.PackBoxesIntoPallets()
+            back
+        }
+        on review
+        {
+            this.ShowCollectedItems()
+            back
+        }
+        on settings
+        {
+            this.EditBoxDepth()
+            back
+        }
+        on exit_document
+        {
+            var result = this.ShowExitMenu()
+            on fail { undo }
+            return result
+        }
+
+        return DocumentEditResult.Abort
+    }
+
+    client function DocumentEditResult ShowExitMenu()
+    {
+        Menu(
+            ShowAsMsgBox = true,
+            Title = "Выход",
+            WelcomeText = "Выберите действие:",
+            Buttons = [
+                new Control { DisplayText = "Временно выйти", Action = save_exit },
+                new Control { DisplayText = "Завершить", Action = finish_document },
+                new Control { DisplayText = "Назад", Action = return_to_menu }
+            ],
+            Controls = [
+                new Control { Key = Keys.Escape, Action = return_to_menu }
+            ],
+            SaveInHistory = false
+        )
+        on save_exit
+        {
+            return DocumentEditResult.Abort
+        }
+        on finish_document
+        {
+            if (this.ActualLines.Count == 0)
+            {
+                return DocumentEditResult.Release
+            }
+
+            return DocumentEditResult.OK
+        }
+        on return_to_menu
+        {
+            fail
+        }
+
+        fail
+    }
+}

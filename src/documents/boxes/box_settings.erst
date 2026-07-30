@@ -1,0 +1,51 @@
+// Настройка вместимости коробок.
+expand ИтоговоеЗадание
+{
+    client function EditBoxDepth()
+    {
+        if (this.ActualLines.Count > 0)
+        {
+            this.ShowError("Глубину коробок можно менять только до первого сканирования товара")
+            return
+        }
+
+        var settings = НастройкиИтоговогоЗадания.ТипДокумента[this.DocumentTypeName]
+        decimal previousDepth = settings.ГлубинаКоробок
+        decimal depth = previousDepth
+
+        EditField(
+            Title = "Настройки",
+            WelcomeText = "Введите глубину коробок (больше 0):",
+            EditType = FieldEditType.Session,
+            FieldType = TypeCode.Decimal,
+            Field = depth,
+            Controls = [
+                new Control { Key = Keys.Escape, Action = cancel }
+            ],
+            SaveInHistory = true
+        )
+        on cancel
+        {
+            return
+        }
+        on return
+        {
+            if (depth <= 0)
+            {
+                this.ShowError("Глубина коробок должна быть больше 0")
+                depth = previousDepth
+                back
+            }
+
+            settings.ГлубинаКоробок = depth
+            GO.ShowBaloon("Глубина коробок: {depth}", 2500, true)
+            return
+        }
+    }
+
+    function decimal GetBoxDepth()
+    {
+        var settings = НастройкиИтоговогоЗадания.ТипДокумента[this.DocumentTypeName]
+        return settings.ГлубинаКоробок
+    }
+}

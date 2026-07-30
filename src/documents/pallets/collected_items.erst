@@ -1,0 +1,209 @@
+// Иерархический просмотр набранных паллет, коробок и товаров.
+expand ИтоговоеЗадание
+{
+    client function ShowCollectedItems()
+    {
+        if (this.ActualLines.Count == 0)
+        {
+            GO.ShowBaloon("В документе пока нет набранных товаров", 2500, true)
+            return
+        }
+
+        var pallets = select line from this.ActualLines
+            where line.PalletBarcode != ""
+            group by PalletBarcode
+        var looseBoxes = select line from this.ActualLines
+            where line.PalletBarcode == ""
+            group by SSCC
+
+        if (pallets.Count > 0 && looseBoxes.Count > 0)
+        {
+            Menu(
+                Title = "Просмотр набранного",
+                WelcomeText = "Выберите группу:",
+                Buttons = [
+                    new Control { DisplayText = "Паллеты", Action = show_pallets },
+                    new Control { DisplayText = "Коробки без паллет", Action = show_loose_boxes }
+                ],
+                Controls = [
+                    new Control { Key = Keys.Escape, Action = close_review }
+                ],
+                SaveInHistory = true
+            )
+            on show_pallets
+            {
+                this.ShowPalletList()
+                back
+            }
+            on show_loose_boxes
+            {
+                this.ShowBoxList("")
+                back
+            }
+            on close_review
+            {
+                return
+            }
+
+            return
+        }
+
+        if (pallets.Count > 0)
+        {
+            this.ShowPalletList()
+            return
+        }
+
+        this.ShowBoxList("")
+    }
+
+    client function ShowPalletList()
+    {
+        var pallets = select line from this.ActualLines
+            where line.PalletBarcode != ""
+            group by PalletBarcode
+        Document.DocumentItem selected = null
+
+        ShowItems(
+            Title = "Паллеты",
+            WelcomeText = "Выберите паллету:",
+            DataSource = pallets,
+            SelectedItem = selected,
+            Columns = [
+                new ItemsColumn {
+                    Title = "Штрихкод паллеты",
+                    Format = "{Item.PalletBarcode}",
+                    Width = 100%,
+                    Align = ContentAlignment.MiddleCenter
+                }
+            ],
+            Controls = [
+                new Control { Key = Keys.Escape, Action = close_pallet_list }
+            ],
+            SaveInHistory = true
+        )
+        on close_pallet_list
+        {
+            return
+        }
+        on return
+        {
+            if (selected != null)
+            {
+                string parentBarcode = selected.PalletBarcode
+                selected = null
+                this.ShowBoxList(parentBarcode)
+                back
+            }
+
+            undo
+        }
+    }
+
+    client function ShowBoxList(string parentBarcode)
+    {
+        Document.DocumentItemCollection boxes
+        string title
+        if (parentBarcode == "")
+        {
+            boxes = select line from this.ActualLines
+                where line.PalletBarcode == ""
+                group by SSCC
+            title = "Коробки без паллет"
+        }
+        else
+        {
+            boxes = select line from this.ActualLines
+                where line.PalletBarcode == parentBarcode
+                group by SSCC
+            title = "Паллета {parentBarcode}"
+        }
+
+        Document.DocumentItem selected = null
+        ShowItems(
+            Title = title,
+            WelcomeText = "Выберите коробку:",
+            DataSource = boxes,
+            SelectedItem = selected,
+            Columns = [
+                new ItemsColumn {
+                    Title = "Штрихкод коробки",
+                    Format = "{Item.SSCC}",
+                    Width = 100%,
+                    Align = ContentAlignment.MiddleCenter
+                }
+            ],
+            Controls = [
+                new Control { Key = Keys.Escape, Action = close_box_list }
+            ],
+            SaveInHistory = true
+        )
+        on close_box_list
+        {
+            return
+        }
+        on return
+        {
+            if (selected != null)
+            {
+                string boxBarcode = selected.SSCC
+                selected = null
+                this.ShowProductsForBox(boxBarcode)
+                back
+            }
+
+            undo
+        }
+    }
+
+    client function ShowProductsForBox(string boxBarcode)
+    {
+        var boxProductLines = this.GetBoxLines(boxBarcode)
+        Document.DocumentItem selected = null
+
+        ShowItems(
+            Title = "Коробка {boxBarcode}",
+            WelcomeText = "Набранные товары:",
+            DataSource = boxProductLines,
+            SelectedItem = selected,
+            Columns = [
+                new ItemsColumn {
+                    Title = "Наименование",
+                    Format = "{Item.InventoryItem.Name}",
+                    Width = 60%,
+                    Align = ContentAlignment.MiddleLeft
+                },
+                new ItemsColumn {
+                    Title = "Серийный номер",
+                    Format = "{Item.SerialNumber}",
+                    Width = 40%,
+                    Align = ContentAlignment.MiddleCenter
+                }
+            ],
+            Controls = [
+                new Control { Key = Keys.Escape, Action = close_product_list }
+            ],
+            SaveInHistory = true
+        )
+        on close_product_list
+        {
+            return
+        }
+        on return
+        {
+            if (selected != null)
+            {
+                this.ShowMarkDetails(selected)
+                boxProductLines = this.GetBoxLines(boxBarcode)
+                selected = null
+                if (boxProductLines.Count == 0)
+                {
+                    return
+                }
+                back
+            }
+
+            undo
+        }
+    }
+}

@@ -1,0 +1,35 @@
+// Серверный реестр транспортных упаковок.
+type ТранспортныеУпаковки of Table
+{
+    @[PrimaryKey = true]
+    @[Indexed = true]
+    string ШКТУ
+
+    string Родитель
+}
+
+// Реестр уникально размещённых марок.
+type Марки of Table
+{
+    @[PrimaryKey = true]
+    string SN
+
+    @[PrimaryKey = true]
+    string GTIN
+
+    string ШкКоробки
+}
+
+// Конфликты размещения марок.
+@[MultiColumnSearchIndexList = "SN, GTIN"]
+type МаркиСОшибками of Table
+{
+    @[Indexed = true]
+    string SN
+
+    @[Indexed = true]
+    string GTIN
+
+    string ШкКоробки
+    string Родитель
+}

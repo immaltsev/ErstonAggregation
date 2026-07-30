@@ -1,0 +1,238 @@
+// Агрегация коробок в паллеты и синхронизация с серверным реестром.
+expand ИтоговоеЗадание
+{
+    client function PackBoxesIntoPallets()
+    {
+        string fieldValue = ""
+        string input = null
+        BarcodeData scanned = null
+
+        (object _selected, input, scanned) = EditField(
+            Title = "Коробки в паллеты",
+            WelcomeText = "Отсканируйте штрихкод паллеты (ТУ2):",
+            EditType = FieldEditType.Session,
+            FieldType = TypeCode.String,
+            Field = fieldValue,
+            Controls = [
+                new Control { Barcode = "\{any\}", Action = scan_pallet },
+                new Control { Key = Keys.Escape, Action = close_pallet_screen }
+            ],
+            SaveInHistory = true
+        )
+        on close_pallet_screen
+        {
+            return
+        }
+        on scan_pallet
+        {
+        }
+        on return
+        {
+        }
+
+        string palletBarcode = ""
+        if (scanned != null)
+        {
+            palletBarcode = scanned.BarcodeRaw
+        }
+        else if (input != null)
+        {
+            palletBarcode = input
+        }
+        else
+        {
+            palletBarcode = fieldValue
+        }
+
+        fieldValue = null
+        if (!ТУ.IsValidBarcode(palletBarcode))
+        {
+            this.ShowError("Штрихкод не соответствует транспортной упаковке")
+            input = null
+            scanned = null
+            back
+        }
+
+        if (!ТУ.IsPalletBarcode(palletBarcode))
+        {
+            this.ShowError("Отсканирована коробка. Требуется паллета (ТУ2)")
+            input = null
+            scanned = null
+            back
+        }
+
+        string currentPallet = palletBarcode
+        while (currentPallet != "")
+        {
+            currentPallet = this.ScanBoxesForPallet(currentPallet)
+        }
+
+        input = null
+        scanned = null
+        back
+    }
+
+    client function string ScanBoxesForPallet(string currentPallet)
+    {
+        while (true)
+        {
+            string serverPalletBoxes = GetServerPalletBoxes(currentPallet)
+            var palletBoxes = new StringCollection()
+            if (serverPalletBoxes != "")
+            {
+                palletBoxes = StringOperations.Split(serverPalletBoxes, "|")
+                if (palletBoxes == null)
+                {
+                    palletBoxes = new StringCollection()
+                }
+            }
+
+            var documentPalletBoxes = select line from this.ActualLines
+                where line.PalletBarcode == currentPallet
+                group by SSCC
+
+            for (line in documentPalletBoxes)
+            {
+                if (!palletBoxes.Contains(line.SSCC))
+                {
+                    palletBoxes.Add(line.SSCC)
+                }
+            }
+
+            string selectedBox = null
+            string fieldValue = ""
+            string input = null
+            BarcodeData scanned = null
+
+            (selectedBox, input, scanned) = EditField(
+                Title = "Паллета {currentPallet}",
+                WelcomeText = "Сканируйте коробки. Повторите ШК паллеты для закрытия:",
+                EditType = FieldEditType.Session,
+                FieldType = TypeCode.String,
+                Field = fieldValue,
+                DataSource = palletBoxes,
+                ShowList = true,
+                ListCaption = "Коробки на паллете:",
+                Columns = [
+                    new ItemsColumn {
+                        Title = "Штрихкод коробки",
+                        Format = "{Item}",
+                        Width = 100%,
+                        Align = ContentAlignment.MiddleCenter
+                    }
+                ],
+                Controls = [
+                    new Control { Barcode = "\{any\}", Action = scan_box_for_pallet },
+                    new Control { Key = Keys.Escape, Action = close_current_pallet }
+                ],
+                SaveInHistory = false
+            )
+            on close_current_pallet
+            {
+                return ""
+            }
+            on scan_box_for_pallet
+            {
+            }
+            on return
+            {
+            }
+
+            string candidate = ""
+            if (scanned != null)
+            {
+                candidate = scanned.BarcodeRaw
+            }
+            else if (input != null && input != "")
+            {
+                candidate = input
+            }
+            else if (fieldValue != null && fieldValue != "")
+            {
+                candidate = fieldValue
+            }
+            else if (selectedBox != null)
+            {
+                candidate = selectedBox
+            }
+
+            if (!ТУ.IsValidBarcode(candidate))
+            {
+                this.ShowError("Штрихкод не соответствует транспортной упаковке")
+                continue
+            }
+
+            if (ТУ.IsPalletBarcode(candidate))
+            {
+                if (candidate == currentPallet)
+                {
+                    GO.ShowBaloon("Паллета {currentPallet} закрыта", 2500, true)
+                    return ""
+                }
+
+                if (this.ConfirmAction(
+                    "Закрыть паллету {currentPallet} и открыть {candidate}?",
+                    "Закрыть и открыть"
+                ))
+                {
+                    GO.ShowBaloon("Паллета {currentPallet} закрыта", 2000, true)
+                    return candidate
+                }
+
+                continue
+            }
+
+            var documentBoxLines = this.GetBoxLines(candidate)
+            if (documentBoxLines.Count > 0)
+            {
+                var firstLine = select first line from documentBoxLines
+                if (firstLine.PalletBarcode != "" && firstLine.PalletBarcode != currentPallet)
+                {
+                    if (!this.ConfirmAction(
+                        "Коробка уже находится на паллете {firstLine.PalletBarcode}. Переместить?",
+                        "Переместить"
+                    ))
+                    {
+                        continue
+                    }
+                }
+
+                for (line in documentBoxLines)
+                {
+                    line.PalletBarcode = currentPallet
+                }
+
+                GO.ShowBaloon("Коробка {candidate} добавлена на паллету", 2200, true)
+                continue
+            }
+
+            bool serverBoxExists = BoxExistsOnServer(candidate)
+            if (!serverBoxExists)
+            {
+                this.ShowError("Такой коробки нет ни в документе, ни на сервере")
+                continue
+            }
+
+            string serverParent = GetServerBoxPallet(candidate)
+            if (serverParent != null && serverParent != "" && serverParent != currentPallet)
+            {
+                if (!this.ConfirmAction(
+                    "Серверная коробка уже находится на паллете {serverParent}. Переместить?",
+                    "Переместить"
+                ))
+                {
+                    continue
+                }
+            }
+
+            bool assigned = AssignServerBoxToPallet(candidate, currentPallet)
+            if (!assigned)
+            {
+                this.ShowError("Коробка была изменена на сервере. Повторите сканирование")
+                continue
+            }
+
+            GO.ShowBaloon("Серверная коробка {candidate} добавлена на паллету", 2500, true)
+        }
+    }
+}

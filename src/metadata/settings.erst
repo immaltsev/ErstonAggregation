@@ -1,0 +1,16 @@
+// Настройки итогового задания с отдельным значением для каждого типа документа.
+type НастройкиИтоговогоЗадания of Settings
+{
+    Parameter ТипДокумента
+
+    @[DeviceAccessibility = ReadWrite]
+    @[ServerAccessibility = ReadWrite]
+    @[ExternalAccessibility = Read]
+    decimal ГлубинаКоробок = 10
+
+    function decimal GetBoxDepth(string typeName)
+    {
+        var settings = НастройкиИтоговогоЗадания.ТипДокумента[typeName]
+        return settings.ГлубинаКоробок
+    }
+}

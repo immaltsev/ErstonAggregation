@@ -1,0 +1,244 @@
+// Сканирование коробок и маркированных товаров.
+expand ИтоговоеЗадание
+{
+    client function PackProducts()
+    {
+        var boxes = this.GetBoxes()
+        Document.DocumentItem selectedBox = null
+        string fieldValue = ""
+        string input = null
+        BarcodeData boxScan = null
+
+        (selectedBox, input, boxScan) = EditField(
+            Title = "Товары в коробки",
+            WelcomeText = "Отсканируйте штрихкод коробки (ТУ1):",
+            EditType = FieldEditType.Session,
+            FieldType = TypeCode.String,
+            Field = fieldValue,
+            DataSource = boxes,
+            ShowList = boxes.Count > 0,
+            ListCaption = "Коробки документа:",
+            Columns = [
+                new ItemsColumn {
+                    Title = "Штрихкод коробки",
+                    Format = "{Item.BoxClosed:<r color="red">{Item.SSCC}</r>;<r color="blue">{Item.SSCC}</r>}",
+                    Width = 100%,
+                    Align = ContentAlignment.MiddleCenter
+                }
+            ],
+            Controls = [
+                new Control { Barcode = "\{any\}", Action = scan_box },
+                new Control { Key = Keys.Escape, Action = close_box_screen }
+            ],
+            SaveInHistory = true
+        )
+        on close_box_screen
+        {
+            return
+        }
+        on scan_box
+        {
+        }
+        on return
+        {
+        }
+
+        string boxBarcode = ""
+        if (boxScan != null)
+        {
+            boxBarcode = boxScan.BarcodeRaw
+        }
+        else if (input != null && input != "")
+        {
+            boxBarcode = input
+        }
+        else if (fieldValue != null && fieldValue != "")
+        {
+            boxBarcode = fieldValue
+        }
+        else if (selectedBox != null)
+        {
+            boxBarcode = selectedBox.SSCC
+        }
+
+        selectedBox = null
+        fieldValue = null
+        input = null
+        boxScan = null
+
+        if (!ТУ.IsValidBarcode(boxBarcode))
+        {
+            this.ShowError("Штрихкод не соответствует транспортной упаковке")
+            back
+        }
+
+        if (!ТУ.IsBoxBarcode(boxBarcode))
+        {
+            this.ShowError("Отсканирована паллета. Требуется коробка (ТУ1)")
+            back
+        }
+
+        var existingLines = this.GetBoxLines(boxBarcode)
+        if (existingLines.Count > 0)
+        {
+            bool resume = this.ShowBoxContents(boxBarcode)
+            if (resume)
+            {
+                this.ScanProductsIntoBox(boxBarcode)
+            }
+
+            boxes = this.GetBoxes()
+            back
+        }
+
+        bool existsOnServer = BoxExistsOnServer(boxBarcode)
+
+        if (existsOnServer)
+        {
+            this.ShowError("С этой коробкой работать нельзя: она уже зарегистрирована на сервере")
+            back
+        }
+
+        this.ScanProductsIntoBox(boxBarcode)
+        boxes = this.GetBoxes()
+        back
+    }
+
+    client function ScanProductsIntoBox(string boxBarcode)
+    {
+        decimal depth = this.GetBoxDepth()
+        while (true)
+        {
+            var boxLines = this.GetBoxLines(boxBarcode)
+            if (boxLines.Count >= depth)
+            {
+                this.SetBoxClosed(boxBarcode, true)
+                this.ShowError("Коробка уже заполнена")
+                return
+            }
+
+            Document.DocumentItem selected = null
+            string fieldValue = ""
+            string input = null
+            BarcodeData markScan = null
+
+            (selected, input, markScan) = EditField(
+                Title = "Коробка {boxBarcode}",
+                WelcomeText = "Отсканируйте марку товара:",
+                HeaderText = "Коробка: {boxLines.Count}/{depth}",
+                EditType = FieldEditType.Session,
+                FieldType = TypeCode.String,
+                Field = fieldValue,
+                DataSource = boxLines,
+                ShowList = true,
+                ListCaption = "Товары в коробке:",
+                Columns = [
+                    new ItemsColumn {
+                        Title = "Наименование",
+                        Format = "{Item.InventoryItem.Name}",
+                        Width = 60%,
+                        Align = ContentAlignment.MiddleLeft
+                    },
+                    new ItemsColumn {
+                        Title = "Серийный номер",
+                        Format = "{Item.SerialNumber}",
+                        Width = 40%,
+                        Align = ContentAlignment.MiddleCenter
+                    }
+                ],
+                Controls = [
+                    new Control { Barcode = "\{any\}", Action = scan_mark },
+                    new Control { Key = Keys.Escape, Action = close_mark_screen }
+                ],
+                SaveInHistory = false
+            )
+            on close_mark_screen
+            {
+                return
+            }
+            on scan_mark
+            {
+            }
+            on return
+            {
+                string manualInput = input != null && input != "" ? input : fieldValue
+                if (manualInput != null && manualInput != "")
+                {
+                    markScan = GO.GetBarcodeData(manualInput)
+                    selected = null
+                }
+            }
+
+            if (markScan == null && selected != null)
+            {
+                this.ShowMarkDetails(selected)
+                continue
+            }
+
+            string gtin
+            string serialNumber
+            (gtin, serialNumber) = this.GetShoeMarkData(markScan)
+            on fail
+            {
+                this.ShowError("Отсканируйте марку")
+                continue
+            }
+
+            if (gtin == "" || serialNumber == "")
+            {
+                this.ShowError("Марка не содержит GTIN или серийный номер")
+                continue
+            }
+
+            var duplicate = this.FindMark(gtin, serialNumber)
+            if (duplicate != null)
+            {
+                this.ShowMarkDetails(duplicate)
+                continue
+            }
+
+            InventoryItemRecord SelectedProduct = this.FindProductByGtin(gtin)
+            on fail
+            {
+                this.ShowError("Товар по GTIN марки не найден или штрихкод неоднозначен")
+                continue
+            }
+
+            SelectedProduct.SSCC = boxBarcode
+            SelectedProduct.GTIN = gtin
+            SelectedProduct.SerialNumber = serialNumber
+            SelectedProduct.PalletBarcode = ""
+            SelectedProduct.BoxClosed = false
+            SelectedProduct.ActualQuantity = 1
+
+            DocumentItemCollection _changedActualLines
+            DocumentItemCollection _changedExpectedLines
+            (_changedActualLines, _changedExpectedLines) = CommitInventoryRecord(
+                CheckQuantity = false,
+                CheckDocumentInfill = false,
+                OnlyInActualLines = true,
+                CombineEqualActualLines = false,
+                ComparingFieldNamesForActualLines = [
+                    "InventoryItemId",
+                    "UnitOfMeasureId",
+                    "GTIN",
+                    "SerialNumber",
+                    "SSCC"
+                ]
+            )
+            on fail
+            {
+                this.ShowError("Не удалось записать товар в документ")
+                continue
+            }
+
+            var updatedBoxLines = this.GetBoxLines(boxBarcode)
+            if (updatedBoxLines.Count >= depth)
+            {
+                this.SetBoxClosed(boxBarcode, true)
+                GO.ShowBaloon("Коробка {boxBarcode} заполнена и закрыта", 3000, true)
+                return
+            }
+        }
+    }
+}

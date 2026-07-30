@@ -1,0 +1,64 @@
+// Проверяет существование коробки в общем серверном реестре.
+server function bool BoxExistsOnServer(string boxBarcode)
+{
+    ТранспортныеУпаковки.Row row = select first from ТранспортныеУпаковки
+        where Item.ШКТУ == boxBarcode
+
+    return row != null
+}
+
+// Возвращает текущую паллету серверной коробки; null означает, что коробки нет.
+server function string GetServerBoxPallet(string boxBarcode)
+{
+    ТранспортныеУпаковки.Row row = select first from ТранспортныеУпаковки
+        where Item.ШКТУ == boxBarcode
+
+    if (row == null)
+    {
+        return null
+    }
+
+    if (row.Родитель == null)
+    {
+        return ""
+    }
+
+    return row.Родитель
+}
+
+// Возвращает штрихкоды коробок, ранее добавленных в паллету на сервере.
+// Строка используется как надёжно сериализуемый результат серверной операции.
+server function string GetServerPalletBoxes(string palletBarcode)
+{
+    string result = ""
+    var rows = select from ТранспортныеУпаковки
+        where Item.Родитель == palletBarcode
+
+    for (packageRow in rows)
+    {
+        if (result != "")
+        {
+            result = result + "|"
+        }
+
+        result = result + packageRow.ШКТУ
+    }
+
+    return result
+}
+
+// Назначает паллету коробке, которая была создана ранее и уже находится на сервере.
+@[@Lock = LockType.Operation]
+server function bool AssignServerBoxToPallet(string boxBarcode, string palletBarcode)
+{
+    var rows = select from ТранспортныеУпаковки
+        where Item.ШКТУ == boxBarcode
+
+    if (rows.Count == 0)
+    {
+        return false
+    }
+
+    rows.Родитель = palletBarcode
+    return true
+}

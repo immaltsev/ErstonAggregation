@@ -1,0 +1,64 @@
+// Обработчик серверного события завершения документа.
+// ServerOperationConnector предоставляет завершённый документ через неявный
+// параметр document.
+@[@Lock = LockType.Operation]
+server function ЗавершениеДокумента(implicit Document document = null)
+{
+    if (document == null || \
+        (document.DocumentTypeName != "ИтоговоеЗадание" && document.DocumentTypeName != "Итоговое задание"))
+    {
+        return
+    }
+
+    var boxes = select line from document.ActualLines group by SSCC
+    for (box in boxes)
+    {
+        ТранспортныеУпаковки.Row package = select first from ТранспортныеУпаковки
+            where Item.ШКТУ == box.SSCC
+
+        if (package == null)
+        {
+            package = new ТранспортныеУпаковки.Row()
+            package.ШКТУ = box.SSCC
+            package.Родитель = box.PalletBarcode
+            ТранспортныеУпаковки.Add(package)
+        }
+        else
+        {
+            package.Родитель = box.PalletBarcode
+        }
+    }
+
+    for (line in document.ActualLines)
+    {
+        Марки.Row existing = select first from Марки
+            where Item.SN == line.SerialNumber && Item.GTIN == line.GTIN
+
+        if (existing == null)
+        {
+            var mark = new Марки.Row()
+            mark.SN = line.SerialNumber
+            mark.GTIN = line.GTIN
+            mark.ШкКоробки = line.SSCC
+            Марки.Add(mark)
+            continue
+        }
+
+        // Повторная обработка того же документа идемпотентна.
+        if (existing.ШкКоробки == line.SSCC)
+        {
+            continue
+        }
+
+        var conflictingMarks = select from Марки
+            where Item.SN == line.SerialNumber && Item.GTIN == line.GTIN
+        Марки.Remove(conflictingMarks)
+
+        var error = new МаркиСОшибками.Row()
+        error.SN = line.SerialNumber
+        error.GTIN = line.GTIN
+        error.ШкКоробки = line.SSCC
+        error.Родитель = line.PalletBarcode
+        МаркиСОшибками.Add(error)
+    }
+}

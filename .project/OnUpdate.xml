@@ -9,6 +9,11 @@
     <item>Configuration\Operations</item>
     <item>Configuration\Environment.mslx</item>
     <item>Settings_Default</item>
+    <item>Settings\Connectivity.ServerOperationConnector.xml</item>
+    <item>Settings\ServerEvents.xml</item>
+    <item>Settings\HYDB.Марки.xml</item>
+    <item>Settings\HYDB.МаркиСОшибками.xml</item>
+    <item>Settings\HYDB.ТранспортныеУпаковки.xml</item>
     <item>AppDescription.xml</item>
     <item>OnRemoteInstall.xml</item>
     <item>OnUpdate.xml</item>

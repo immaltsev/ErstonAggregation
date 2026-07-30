@@ -1,0 +1,91 @@
+// Общие операции над коробками и марками, используемые несколькими сценариями.
+expand ИтоговоеЗадание
+{
+    client function ShowError(string message)
+    {
+        GO.PlayError()
+        GO.ShowErrorBaloon(message, 4000, true)
+    }
+
+    function Document.DocumentItemCollection GetBoxLines(string boxBarcode)
+    {
+        return select line from this.ActualLines where line.SSCC == boxBarcode
+    }
+
+    function Document.DocumentItemCollection GetBoxes()
+    {
+        return select line from this.ActualLines group by SSCC order by RegistrationDate desc
+    }
+
+    function Document.DocumentItem FindMark(string gtin, string serialNumber)
+    {
+        return select first line from this.ActualLines
+            where line.GTIN == gtin && line.SerialNumber == serialNumber
+    }
+
+    function bool IsBoxClosed(string boxBarcode)
+    {
+        var line = select first item from this.ActualLines where item.SSCC == boxBarcode
+        return line != null && line.BoxClosed
+    }
+
+    function SetBoxClosed(string boxBarcode, bool value)
+    {
+        var lines = this.GetBoxLines(boxBarcode)
+        for (line in lines)
+        {
+            line.BoxClosed = value
+        }
+    }
+
+    client function bool ConfirmAction(string message, string yesText)
+    {
+        Menu(
+            ShowAsMsgBox = true,
+            WelcomeText = message,
+            Buttons = [
+                new Control { DisplayText = yesText, Action = confirm_yes },
+                new Control { DisplayText = "Нет", Action = confirm_no }
+            ],
+            Controls = [
+                new Control { Key = Keys.Escape, Action = confirm_no }
+            ],
+            SaveInHistory = false
+        )
+        on confirm_yes { return true }
+        on confirm_no { return false }
+
+        return false
+    }
+
+    client function (string gtin, string serialNumber) GetShoeMarkData(BarcodeData value)
+    {
+        if (value != null)
+        {
+            if (value.GS1 != null && value.GTIN != "" && value.GS1.SerialNumber != "")
+            {
+                return value.GTIN, value.GS1.SerialNumber
+            }
+        }
+
+        fail
+    }
+
+    client function InventoryItemRecord FindProductByGtin(string gtin)
+    {
+        var gtinBarcode = GO.GetBarcodeData(gtin)
+        var matches = Inventory.FindByInventoryItemBarcode(gtinBarcode)
+
+        if (matches.Count == 0)
+        {
+            matches = Inventory.FindByUnitOfMeasureBarcode(gtinBarcode, false, true)
+        }
+
+        if (matches.Count == 1)
+        {
+            return matches[0]
+        }
+
+        fail
+    }
+}
